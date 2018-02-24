@@ -28,7 +28,6 @@ app.get('/index', function (req, res){
 
 app.get('/candidates', function (req, res, next) {
 	console.log('Reading from candidates');
-	var query;
    	sql.connect(config, function (err) {
     
         if (err) {
@@ -52,6 +51,32 @@ app.get('/candidates', function (req, res, next) {
     });   
 }, function (req, res){
 	sql.close();
+})
+
+app.post('/vote', function (req, res) {
+	console.log('Submitting Vote');
+	sql.connect(config, function (err) {
+    
+        if (err) {
+        	sql.close();
+        	console.log(err);
+        }
+
+        // create Request object
+        var request = new sql.Request();
+           
+        // query to the database and get the records
+        request.query('INSERT INTO eligible (firstName, lastName, submitted, address, location, phone) VALUES (\''+
+        req.body.first +'\', \''+
+        req.body.last +'\', '+
+        req.body.submitted +', \''+
+        req.body.address +'\', \''+
+        req.body.location +'\', \''+
+        req.body.phone +'\')', function (err) { 
+            if (err) console.log(err);
+     			res.end();
+        });
+    });
 })
 
 function queryEligible(id)
