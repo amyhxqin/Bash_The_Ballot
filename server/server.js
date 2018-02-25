@@ -196,29 +196,36 @@ app.post('/vote2', function (req, res, next){
 	sql.close();
 })
 
-//voterId, firstName, lastName, submitted, address, location, phone
-
-app.post('/userInfo', function (req, res, next){
-	// if(!req.body)
-	// 	return res.status(400).send('No text uploaded');
-
-	name = req.body.name;
-	phone = req.body.phone_number;
-	id = req.body.id;
-	address = req.body.address;
-	location = req.body.location;
-	console.log("fdsfdsf");
-	next();
+app.post('/removeCandidate', function (req, res, next){
 	
-}, function (req, res){
-	console.log(name + phone + id + address + location);
+	sql.connect(config, function (err) {
+	console.log("removing Candidate from ballot");
+
+    var request = new sql.Request();
+ 	request.query('DELETE FROM ballot WHERE ballot.candidateId = '+req.body.candidate.toString(), function (err) { 
+        if (err) console.log(err);
+ 		next();
+    	});
+ 	});
+}, function (req, res, next){
+	sql.close();
+	sql.connect(config, function (err) {
+	console.log("removing Candidate from candidates");
+
+    var request = new sql.Request();
+ 	request.query('DELETE FROM candidates WHERE candidates.id = '+req.body.candidate.toString(), function (err) { 
+        if (err) console.log(err);
+ 		next();
+    	});
+ 	});
+}, function (req, res, next){
+	sql.close();
 	res.end();
 })
-
 
 var server = app.listen(port, function () {
    var host = server.address().address
    var port = server.address().port
    
-   console.log("Example app listening at http://%s:%s", host, port)
+   console.log("App listening at http://%s:%s", host, port)
 })
