@@ -271,7 +271,6 @@ z-index: 1;
 							}
 							input[type="radio"] {
 								float: right;
-<<<<<<< HEAD
 								  margin-left: 10px;
 									position: relative;
 								}
@@ -285,9 +284,7 @@ z-index: 1;
 }
 .ballot-back:hover {
 	background-color: #808B96;
-}
-=======
+
 								margin-left: 0px;
 								position: relative;
 								}
->>>>>>> 02a5ada43ef7dabb45a7b1911c31c1e33ce11fcd
