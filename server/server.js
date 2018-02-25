@@ -44,8 +44,8 @@ app.get('/candidates', function (req, res, next) {
             if (err) console.log(err)
 
             // send records as a response
-            res.send(recordset.recordsets[0]);
-            res.end();
+        	res.json(recordset.recordsets[0]);
+            console.log(recordset.recordsets[0]);
             next();
         });
     });   
@@ -56,6 +56,7 @@ app.get('/candidates', function (req, res, next) {
 var alreadyVoted = false;
 var voterId = 0;
 app.post('/vote', function (req, res, next) {
+	console.log(req.body.address);
 	console.log('Submitting Vote');
 	sql.connect(config, function (err) {
     
@@ -165,8 +166,7 @@ app.get('/count', function (req, res, next){
 	    var request = new sql.Request();
 	 	request.query('SELECT candidates.firstName, candidates.lastName, voteSum.totalVotes FROM candidates, (SELECT COUNT(candidateId) AS totalVotes, candidateId FROM ballot GROUP BY candidateId) AS voteSum WHERE voteSum.candidateId=candidates.id;', function (err, recordset) { 
 	    	    if (err) console.log(err);
-	 			res.send(recordset.recordset);
-	 			res.end();
+	 			res.json(recordset.recordset);
 	 			next();
 	    });
  	});
