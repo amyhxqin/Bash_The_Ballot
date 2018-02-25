@@ -5,10 +5,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500|Open+Sans');
 	
 div className="banner-text"><strong>Bash the Ballot</strong></div>
-body{
+html, body{
 	margin: 0;
 	width: 100%;
 	background-color: #FFFFFF;
+	height: 100%;
 
 }
 
@@ -88,12 +89,12 @@ p{
 	z-index: 1;
 	position: absolute;
   	top: 150px;
-    	margin-left: 200px;
+    	margin-left: 150px;
 }
 
 .banner-image{
 	z-index: 0;
-	opacity: 0.6;
+	opacity: 0.5;
 	width: 100%;
 	margin:0;
 	padding:0;
@@ -169,7 +170,7 @@ p{
 .content h1 {
  	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 	color: #667399;
-	font-size: 2em;
+	font-size: 1.8em;
 	margin: 20px;
 
 }
@@ -211,3 +212,66 @@ z-index: 1;
 	z-index: 100;
 	width: 80%;
 }
+
+.ballot-background{
+	background: #566573;
+	height:100%; 
+	width:100%;
+	margin:0;
+	position: absolute; 
+	top: 0; 
+	left: 0;
+	padding-top: 20px;
+}
+
+.ballot-container {
+	border-radius: 25px;  
+	  border: 2px solid black;
+		padding: 20px;
+		  width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+  }
+
+  .title {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+		font-size: 3.5em;
+		 font-style: normal;
+			 font-variant: normal;
+				 font-weight: 500;
+					 line-height: 30px;
+					   color: #FAE5D3;
+						 text-align: center;
+						   padding-top: 50px;
+							 padding-bottom: 50px;
+					 }
+
+.radio {
+	margin: 20px;
+	  position: relative;
+		font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+		font-size: 1.2em;
+			font-style: normal;
+				font-variant: normal;
+					font-weight: 500;
+						line-height: 23px;
+						  color: #FAE5D3;
+							text-align: center;
+							  margin-right: 40px;
+						  }
+
+						  .submit-btn {
+							position: relative;
+							  left: 40%;
+								font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+								font-size: 1em;
+							}
+
+							.submit-btn:hover {
+								background-color: #808B96;
+							}
+							input[type="radio"] {
+								float: right;
+								  margin-left: 10px;
+									position: relative;
+								}
