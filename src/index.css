@@ -173,3 +173,8 @@ top: 0px;
 right: 0px;
 z-index: 1;
 }
+
+.candidates-chart{
+	z-index: 100;
+	width: 80%;
+}
