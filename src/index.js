@@ -14,18 +14,13 @@ import Charts from 'react-chartjs';
 import request from "../node_modules/superagent/superagent";
 import { Connect, SimpleSigner } from 'uport-connect'
 import { QRUtil } from 'uport-connect'
+import NewWindow from 'react-new-window'
 
 //import BallotForm from './ballot-form/src/App.js';
 
-//Pages without content yet:
-//Candidates
-//Vote!
-
-//Pages with dummy content
-//All (feel free to add/modify content)
-
-//IMPORTANT: to run the code, please make sure you have react-chartjs installed
+//IMPORTANT: to run the code, please make sure you have the following installed
 //Link: https://github.com/reactjs/react-chartjs
+//Link: https://github.com/rmariuzzo/react-new-window
 
 //Sticky navigation bar with jQuery
 require("jsdom").env("", function(err, window) {
@@ -267,7 +262,36 @@ class Container extends React.Component {
 			}	
 	  
 			
-	  
+	 //Ballot exit button
+
+	 back(e) {
+    e.preventDefault();
+    mainContent = (
+    	<div className="content">
+    		<h1 align="center">Welcome to Elections Birdtown!</h1>
+    		<h2 align="center">Current Number of Votes for Each Candidate</h2>
+    		<div align="center">
+	    		<Charts.Pie 
+	    			data={data}
+	    			width="300" 
+	    			height="300"
+
+	    		/>
+    		</div>
+    		<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+		</div>
+		)
+
+
+	ReactDOM.render(
+  		<Container />,
+  		document.getElementById('root')
+	);
+
+  	}
+
 	  //<div dangerouslySetInnerHTML={createMarkup(this.state.items[0].firstName)} />
 	  
 			render() {
@@ -275,6 +299,7 @@ class Container extends React.Component {
 	  
 					return (
 						<div className="ballot-background">
+						<button className="ballot-back" onClick={this.back}>Exit</button>
 							  <div className = "ballot-container">
 					  <div className = "title">{title}</div>
 						<form onSubmit={this.handleSubmit}>
@@ -304,7 +329,6 @@ class Container extends React.Component {
 							  </div>
 							  </form>
 							  <button className="submit-btn" type="submit" onClick = {this.handleOptionSubmit}>Submit</button>
-							  <p>To return to the website, please refresh.</p>
 							  </div> 
 							</div>
 					);

@@ -275,3 +275,14 @@ z-index: 1;
 								  margin-left: 10px;
 									position: relative;
 								}
+
+.ballot-back{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+								font-size: 1em;
+}
+.ballot-back:hover {
+	background-color: #808B96;
+}
