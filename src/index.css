@@ -26,9 +26,9 @@ p{
 
 .navbar{
 	margin: 0;
-    padding: 0;
-    overflow: hidden;
-    width: 100%;
+   	padding: 0;
+    	overflow: hidden;
+    	width: 100%;
 	height: 60px;
 	background-color: #CCD1D1;
 	}
@@ -42,10 +42,9 @@ p{
 	float: left;
 	text-align: center;
 	padding-top: 5px;
-	font-size: 40px;
 	border: none;
-	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 1.5em;
 }
 .navbar-link:hover {
     background-color: #808B96;
@@ -60,14 +59,14 @@ p{
 	background-color: transparent;
 	overflow: hidden;
 }
-
+/*
 .banner h1 {
   color: #566573;
   text-align: center;
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
   font-size: 4em;
 }
-
+*/
 .banner p {
   text-align: center;
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
@@ -76,18 +75,20 @@ p{
 }
 
 .banner-text{
-	margin: 0;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  	font-size: 5em;
+	font-weight: 500;
+	color: #667399;
 	padding: 0;
 	z-index: 1;
 	position: absolute;
-    top: 100px;
-    left:25%;
-    font-size: 50px;
+  	top: 150px;
+    	margin-left: 200px;
 }
 
 .banner-image{
 	z-index: 0;
-	opacity: 0.2;
+	opacity: 0.5;
 	width: 100%;
 	margin:0;
 	padding:0;
@@ -100,17 +101,58 @@ p{
 	margin-left: auto;
 	margin-right: auto;
 	width: 80%;
-	padding: 0;
+	padding: 10px;
 	text-align: justify;
 }
 
+.candidateA {
+	background-color: #EBF5FB;
+	padding: 50px;
+	margin-left: 10%;
+	border-radius: 30px;
+	width: 700px;
+}
+
+.candidateB {
+	background-color: #F5EEF8;
+	border-radius: 30px;
+	margin-left: 10%;
+	width: 700px;
+	padding: 50px;
+}
+
+.candidateA img{
+	float: left;
+	opacity: 0.7;
+	margin-right: 30px;
+}	
+
+.candidateB img{
+	float: left;
+	opacity: 0.7;
+	margin-right: 30px;
+}
+
+.content h1 {
+ 	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	color: #667399;
+	font-size: 2em;
+	margin: 20px;
+
+}
+.content p {
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	color: #667399;
+	font-size: 1em;
+	margin: 20px;
+}
 .footer{
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-    width: 100%;
+   	width: 100%;
 	height: 60px;
-	background-color: #2C3E50;
+	background-color: #808B96;;
 	color: white;
 }
 
@@ -130,4 +172,9 @@ left: 0px;
 top: 0px;
 right: 0px;
 z-index: 1;
+}
+
+.candidates-chart{
+	z-index: 100;
+	width: 80%;
 }
