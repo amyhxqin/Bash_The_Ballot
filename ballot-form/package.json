@@ -2,7 +2,7 @@
   "name": "ballot-form",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:80",
+  "proxy": "http://localhost:1337",
   "dependencies": {
     "browser-request": "^0.3.3",
     "react": "^16.2.0",
