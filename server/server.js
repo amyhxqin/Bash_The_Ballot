@@ -166,6 +166,10 @@ app.get('/count', function (req, res, next){
 	    var request = new sql.Request();
 	 	request.query('SELECT candidates.firstName, candidates.lastName, voteSum.totalVotes FROM candidates, (SELECT COUNT(candidateId) AS totalVotes, candidateId FROM ballot GROUP BY candidateId) AS voteSum WHERE voteSum.candidateId=candidates.id;', function (err, recordset) { 
 	    	    if (err) console.log(err);
+			/*output = [{firstName:"Mr Goose", lastName:"Waterloo", totalVotes:0},
+				{firstName:"Mr Goose", lastName:"", totalVotes:0},
+				{firstName:"Mr Goose", lastName:"Waterloo", totalVotes:0},
+				{firstName:"Mr Goose", lastName:"Waterloo", totalVotes:0}];*/
 	 			res.json(recordset.recordset);
 	 			next();
 	    });

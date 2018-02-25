@@ -1,5 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Fugaz+One|Open+Sans');
-
+/*@impor://fonts.googleapis.com/css?family=Josefin+Sans');
+ * i
+ */
+ @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500|Open+Sans');
+	
+div className="banner-text"><strong>Bash the Ballot</strong></div>
 body{
 	margin: 0;
 	width: 100%;
@@ -30,7 +35,7 @@ p{
     	overflow: hidden;
     	width: 100%;
 	height: 60px;
-	background-color: #CCD1D1;
+	background-color: #c4ccd1;
 	}
 
 .navbar-link{
@@ -75,8 +80,8 @@ p{
 }
 
 .banner-text{
-	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-  	font-size: 5em;
+  	font-family: 'Josefin Sans', sans-serif;
+	font-size: 5em;
 	font-weight: 500;
 	color: #667399;
 	padding: 0;
@@ -88,7 +93,7 @@ p{
 
 .banner-image{
 	z-index: 0;
-	opacity: 0.5;
+	opacity: 0.6;
 	width: 100%;
 	margin:0;
 	padding:0;
@@ -133,6 +138,34 @@ p{
 	margin-right: 30px;
 }
 
+.candidateC {
+	background-color: #E7FEF5;
+	border-radius: 30px;
+	margin-left: 10%;
+	width: 700px;
+	padding: 50px;
+}
+
+.candidateC img{
+	float: left;
+	opacity: 0.7;
+	margin-right: 30px;
+}
+
+.candidateD {
+	background-color: #FEF5E7;
+	border-radius: 30px;
+	margin-left: 10%;
+	width: 700px;
+	padding: 50px;
+}
+
+.candidateD img{
+	float: left;
+	opacity: 0.7;
+	margin-right: 30px;
+}
+
 .content h1 {
  	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 	color: #667399;
@@ -152,7 +185,7 @@ p{
 	overflow: hidden;
    	width: 100%;
 	height: 60px;
-	background-color: #808B96;;
+	background-color: #667399;
 	color: white;
 }
 

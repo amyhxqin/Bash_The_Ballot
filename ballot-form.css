@@ -1,0 +1,64 @@
+body {
+  background: #566573;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+}
+
+form {
+ border: 1px;
+ padding-left: 20px;
+ display: float;
+ 
+}
+
+.container {
+  border-radius: 25px;  
+  border: 2px solid black;
+  padding: 20px;
+  width: 300px;
+}
+
+.title {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	font-size: 3.5em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 30px;
+  color: #FAE5D3;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+input[type="radio"] {
+  float: right;
+  margin-left: 50px;
+  position: relative;
+}
+
+.radio {
+  margin: 20px;
+  position: relative;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	font-size: 1.2em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 23px;
+  color: #FAE5D3;
+  text-align: center;
+  margin-right: 40px;
+}
+
+.submit-btn {
+  position: relative;
+  left: 40%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	font-size: 1em;
+}
+
+.submit-btn:hover {
+  background-color: #808B96;
+}

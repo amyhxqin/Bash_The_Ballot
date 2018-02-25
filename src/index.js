@@ -7,8 +7,8 @@ import RC2 from 'react-chartjs2';
 import { BrowserRouter } from 'react-router-dom';
 import goose1 from './goose1.png';
 import goose2 from './goose2.png';
-//import goose3 from './goose3.png'
-;
+import bird3 from './bird3.png';
+import bird4 from './bird4.png';
 import Charts from 'react-chartjs';
 
 //Pages without content yet:
@@ -51,31 +51,31 @@ $(function(){
 
 //Data for the charts
 
-const data = [
+var data = [
 
-//Candidate 1
+//Candidate 1 = mr waterloo goose
 	{
-		label: 'Candidate 1', //name of candidate
+		label: 'Mr Goose, Waterloo', //name of candidate
 		value: 100, //# of votes
-		color: '#FF0400' //color of portion
+		color: '#A3D6F1' //color of portion
 	},
-//Candidate 2
+//Candidate 2 = mr toronto goose
 	{
-		label: 'Candidate 2', //name of candidate
+		label: 'Mr Goose, Toronto', //name of candidate
 		value: 200, //# of votes
-		color: '#0800FF' //color of portion
+		color: '#D7BDE2' //color of portion
 	},
 //Candidate 3
 	{
-		label: 'Candidate 3', //name of candidate
+		label: 'Sir Snow Bunting', //name of candidate
 		value: 300, //# of votes
-		color: '#09E02D' //color of portion
+		color: '#A3E4D7' //color of portion
 	},
 //Candidate 4
 	{
-		label: 'Candidate 4', //name of candidate
+		label: 'Mrs Bullfinch', //name of candidate
 		value: 400, //# of votes
-		color: '#F80AB3' //color of portion
+		color: '#FAD7A0' //color of portion
 	}
 ];
 
@@ -105,9 +105,7 @@ var mainContent = (
 var mainBanner = (
 	<div className="banner">
 	<img className="banner-image" src="https://www.canada.ca/content/canadasite/en/services/culture/cultural-attractions/attractions-canada-capital/parliament-hill/_jcr_content/par/adaptiveimage/image.img.jpg/1512936160913.jpg" width ="100%"/>
-	<div className="banner-text">Elections Waterloo</div>
-	<img className="banner-image" src="https://media.istockphoto.com/photos/election-vote-buttons-picture-id513643990" width ="100%"/>
-	<div className="banner-text"><strong>Bash the Ballot</strong></div>
+	<div className="banner-text">Elections Birdtown</div>
 	</div>
 	);
 class Banner extends React.Component{
@@ -126,14 +124,33 @@ class Content extends React.Component {
 //Body of the website
 class Container extends React.Component {
 
-	//The following functions modify the content class when a corresponding navigation button is clicked.
+	constructor(props) {
+		super(props);
+		this.state = {items: [{"firstName": "Mr Goose", "lastName": "Waterloo", "totalVotes": 1}, 
+					{"firstName": "Mr Goose", "lastName": "Toronto", "totalVotes": 1},
+					{"firstName": "Sir Snow", "lastName": "Bunting", "totalVotes": 1},
+					{"firstName": "Mrs", "lastName": "Bullfinch", "totalVotes": 1}, 
+	]};}
 
+
+	//The following functions modify the content class when a corresponding navigation button is clicked.
+	
+	componentDidUpdate() {
+		fetch('/count')
+		.then(res => res.json())
+		.then(items => this.setState({ items }));
+		data[0].value = this.state.items[0].totalVotes;
+		data[1].value = this.state.items[1].totalVotes;
+		data[2].value = this.state.items[2].totalVotes;
+		data[3].value = this.state.items[3].totalVotes;
+	}
+	
 	//Home page
 	index(e) {
     e.preventDefault();
     mainContent = (
     	<div className="content">
-    		<h1 align="center">Welcome to Bash the Ballot!</h1>
+    		<h1 align="center">Welcome to Elections Birdtown!</h1>
     		<h2 align="center">Current Number of Votes for Each Candidate</h2>
     		<div align="center">
 	    		<Charts.Pie 
@@ -169,39 +186,39 @@ class Container extends React.Component {
     mainContent = (<div className="content">
 				<h1 align="center">Candidates</h1>
 	    		<div className = "candidateA">
-	    		<img src={goose1} width ="200px"/>
-			<h2> Mr. Goose, Waterloo </h2>
-	    		<p>Few words explaining ideals of mr goose 
-	    			akjfhkajdhf akjsdhafksjd akjsdfLorem ipsum dolor sit amet, consectetur adipiscing elit. 
-	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
-	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
-	    		Fusce eros t</p>
+				<img src={goose1} width ="200px"/>
+				<h2> Mr Goose, Waterloo </h2>
+				<p>Few words explaining ideals of mr goose 
+					akjfhkajdhf akjsdhafksjd akjsdfLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
+				Fusce eros t</p>
 	    		</div>
-	    		<div className ="candidateB">
-	    		<img src={goose2} width ="200px"/>
-			<h2> Mr. Goose, Toronto </h2>
-	    		<p>Few words explaining ideals of mr goose o.f. toronto Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
-	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
-	    		Fusce eros t</p>
+				<div className ="candidateB">
+				<img src={goose2} width ="200px"/>
+				<h2> Mr Goose, Toronto </h2>
+				<p>Few words explaining ideals of mr goose o.f. toronto Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
+				Fusce eros t</p>
 			</div>
-	    /*
 			<div className ="candidateC">
-	    		<img src={goose3} width ="200px"/>
-			<h2> Mr. Goose, McMaster </h2>
-	    		<p>Few words explaining ideals of mr goose from McMaster Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
-	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
-	    		Fusce eros t</p>
-			</div> */
+				<img src={bird3} width ="200px"/>
+				<h2> Sir Snow Bunting </h2>
+				<p>Few words explaining ideals of mr goose from McMaster Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
+				Fusce eros t</p>
+			</div> 
+	    		<div className ="candidateD">
+				<img src={bird4} width ="200px"/>
+				<h2> Mrs Bullfinch </h2>
+				<p>Few words explaining ideals of mr goose from McMaster Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
+				Fusce eros t</p>
+			</div> 
     </div>)
-  	//Candidates page
-  	candidates(e) {
-    e.preventDefault();
-    mainContent = (<div className="content">
-				<h1 align="center">Candidates</h1>
-		</div>)
-
 	ReactDOM.render(
   		<Container />,
   		document.getElementById('root')
@@ -295,6 +312,8 @@ class Container extends React.Component {
 	    		<h2 align="center">More questions? Contact us at bashtheballot@gmail.com</h2>
 		</div>)
 
+
+	
 	ReactDOM.render(
   		<Container />,
   		document.getElementById('root')
