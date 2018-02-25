@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { findDOMNode } from "react-dom";
 import $ from "jquery";
 import './index.css';
+import RC2 from 'react-chartjs2';
 
 require("jsdom").env("", function(err, window) {
     if (err) {
@@ -98,10 +99,10 @@ class Container extends React.Component {
 
   	}
 
-  	contact(e) {
+  	candidates(e) {
     e.preventDefault();
     mainContent = (<div className="content">
-				<h1 align="center">Contact Us</h1>
+				<h1 align="center">Candidates</h1>
 		</div>)
 
 	ReactDOM.render(
@@ -114,6 +115,71 @@ class Container extends React.Component {
     e.preventDefault();
     mainContent = (<div className="content">
 				<h1 align="center">FAQ</h1>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<h2 align="center">More questions? Contact us at bashtheballot@gmail.com</h2>
 		</div>)
 
 	ReactDOM.render(
@@ -129,8 +195,8 @@ class Container extends React.Component {
 				<Banner/>
 				<div className="navbar">
 		  		<button className="navbar-link" onClick={this.index}>Home</button>
+		  	   <button className="navbar-link" onClick={this.candidates}>Candidates</button>
 			   <button className="navbar-link" onClick={this.vote}>Vote!</button>
-			   <button className="navbar-link" onClick={this.contact}>Contact us</button>
 			   <button className="navbar-link" onClick={this.faq}>FAQ</button>
 			   </div>
 			    <Content/>
