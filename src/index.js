@@ -324,15 +324,18 @@ class Container extends React.Component {
 	    		<div className = "candidateA">
 				<img src={goose1} width ="200px"/>
 				<h2> Mr Goose, Waterloo </h2>
-				<p>Honk Honk Honk! Mr Goose, from Waterloo, is here to answer all your prayers! Upset over the broken promises of politicans? Angry that nothing ever seems to be done? Furious that nobody ever listens? When you vote for Mr Goose, you're voting for change! For an innovative tomorrow! akjfhkajdhf akjsdhafksjd akjsdfLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				<p>Honk Honk Honk! Mr Goose, from Waterloo, is here to answer all your prayers! Upset over the broken 
+					promises of politicans? Angry that nothing ever seems to be done? Furious that nobody ever listens? 
+					When you vote for Mr Goose, you're voting for change! For an innovative tomorrow! 
+					akjfhkajdhf akjsdhafksjd akjsdfLorem ipsum dolor sit amet, consectetur adipiscing elit. 
 	    Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
-				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
-				Fusce eros t</p>
+				</p>
 	    		</div>
 				<div className ="candidateB">
 				<img src={goose2} width ="200px"/>
 				<h2> Mr Goose, Toronto </h2>
-				<p>Few words explaining ideals of mr goose toronto Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				<p>You may be wondering why Mr Goose Toronto rarely shows his face in public, but that's because he's busy taking care of his little gooselings at home! Vote for Mr Goose Toronto and perhaps he will bless the public with pictures of his cute children. 
+				Few words explaining ideals of mr goose toronto Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
 				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
 				Fusce eros t</p>
@@ -340,15 +343,15 @@ class Container extends React.Component {
 			<div className ="candidateC">
 				<img src={bird3} width ="200px"/>
 				<h2> Sir Snow Bunting </h2>
-				<p>Few words explaining ideals of mr goose from McMaster Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
-				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
-				Fusce eros t</p>
+				<p>Oh no! There's no more snow already? This must be the result of global warming! Vote for your Sir Snow Bunting, your local green candidate to ensure a 
+					brighter, more prosperous, and more eco-friendly future! He's always down to re-use, reduce and recycle! As a dedicated friend to nature, 
+					Sir Snow Bunting plants 10000 trees per year, and is a proud supporter of Birdtown's MeWithTrees! trees rocks water water etc.
+				</p>
 			</div> 
 	    		<div className ="candidateD">
 				<img src={bird4} width ="200px"/>
-				<h2> Mrs Bullfinch </h2>
-				<p>Few words explaining ideals of mr goose from McMaster Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				<h2> Mrs Eurasian Bullfinch </h2>
+				<p>Cheep cheep! Few words explaining ideals of mrs eurasian bullfinch, family values, etc Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
 				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
 				Fusce eros t</p>
