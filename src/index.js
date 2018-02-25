@@ -1,53 +1,215 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
+import { findDOMNode } from "react-dom";
+import $ from "jquery";
 import './index.css';
+import RC2 from 'react-chartjs2';
 
-class Navbar extends React.Component {
-  render() {
-    return (
-    	<div className="navbar">
-		  <div className="navbar-link"> <a href="index.html">Home</a></div>
-		  <div className="navbar-link"><a href="elections.html">Vote!</a></div>
-		  <div className="navbar-link"><a href="contact.html">Contact us</a></div>
-		  <div className="navbar-link"><a href="faq.html">FAQ</a></div>
-		</div>
-    	);
-  }
+require("jsdom").env("", function(err, window) {
+    if (err) {
+        console.error(err);
+        return;
+    }
+ 
+    var $ = require("jquery")(window);
+});
+
+$(function(){
+
+	var listval = $('.navbar')[0].offsetTop;   
+
+	$(document).scroll(function() {     
+
+		var topval = $(document).scrollTop();         
+			if(topval >= listval){  
+			   $('.navbar').addClass('fixed');  
+			} else {  
+			   $('.navbar').removeClass('fixed');  
+			}  
+
+	});  
+
+});
+
+var mainContent = (
+	<div className="content">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
+	    		Fusce eros turpis, scelerisque non augue sit amet, bibendum elementum neque. 
+	    		Suspendisse fermentum odio sit amet porta posuere. Nam suscipit vel tortor sit amet pulvinar. 
+	    		Donec id arcu vulputate, cursus velit sed, finibus enim. 
+	    		Vestibulum sed facilisis quam, ut rhoncus justo. Donec a velit eget lectus pretium imperdiet vel eu justo. 
+	    		Maecenas turpis enim, pulvinar eget bibendum in, mattis eget leo. Proin efficitur rhoncus odio quis rutrum. </p>
+	</div>
+);
+
+var mainBanner = (
+	<div className="banner">
+	<img className="banner-image" src="https://media.istockphoto.com/photos/election-vote-buttons-picture-id513643990" width ="100%"/>
+	<div className="banner-text">Bash the Ballot</div>
+	</div>
+	);
+class Banner extends React.Component{
+	render(){
+		return mainBanner;
+	}
 }
 
 class Content extends React.Component {
   render() {
-    return (
-    	<div className="content">
-		</div>
-    	);
-  }
-}
-
-class Footer extends React.Component {
-  render() {
-    return (
-    	<div className="footer">
-		  <div className="footer-link"> <a href="index.html">Home</a></div>
-		  <div className="footer-link"><a href="elections.html">Vote!</a></div>
-		  <div className="footer-link"><a href="contact.html">Contact us</a></div>
-		  <div className="footer-link"><a href="faq.html">FAQ</a></div>
-		  <div className="footer-disclaimer">This project is created in the context of Hack the Valley 2. 
-		  All names, events, and locations are fictionary. We reserve all rights to this project.</div>
-		</div>
-
-    	);
+    return mainContent;
   }
 }
 
 class Container extends React.Component {
+
+	index(e) {
+    e.preventDefault();
+    mainContent = (<div className="content">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
+	    		Fusce eros turpis, scelerisque non augue sit amet, bibendum elementum neque. 
+	    		Suspendisse fermentum odio sit amet porta posuere. Nam suscipit vel tortor sit amet pulvinar. 
+	    		Donec id arcu vulputate, cursus velit sed, finibus enim. 
+	    		Vestibulum sed facilisis quam, ut rhoncus justo. Donec a velit eget lectus pretium imperdiet vel eu justo. 
+	    		Maecenas turpis enim, pulvinar eget bibendum in, mattis eget leo. Proin efficitur rhoncus odio quis rutrum. </p>
+		</div>)
+
+
+	ReactDOM.render(
+  		<Container />,
+  		document.getElementById('root')
+	);
+
+  	}
+
+
+  	vote(e) {
+    e.preventDefault();
+    mainContent = (<div className="content">
+				<h1 align="center">Vote!</h1>
+		</div>)
+
+	ReactDOM.render(
+  		<Container />,
+  		document.getElementById('root')
+	);
+
+  	}
+
+  	candidates(e) {
+    e.preventDefault();
+    mainContent = (<div className="content">
+				<h1 align="center">Candidates</h1>
+		</div>)
+
+	ReactDOM.render(
+  		<Container />,
+  		document.getElementById('root')
+	);
+	}
+
+	faq(e) {
+    e.preventDefault();
+    mainContent = (<div className="content">
+				<h1 align="center">FAQ</h1>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+	    		<h2 align="center">More questions? Contact us at bashtheballot@gmail.com</h2>
+		</div>)
+
+	ReactDOM.render(
+  		<Container />,
+  		document.getElementById('root')
+	);
+	}
+
 	render(){
 		return(
+			<div className="wrap">
 			<div className="container">
-				<Navbar/>,
-				<Footer/>
+				<Banner/>
+				<div className="navbar">
+		  		<button className="navbar-link" onClick={this.index}>Home</button>
+		  	   <button className="navbar-link" onClick={this.candidates}>Candidates</button>
+			   <button className="navbar-link" onClick={this.vote}>Vote!</button>
+			   <button className="navbar-link" onClick={this.faq}>FAQ</button>
+			   </div>
+			    <Content/>
+			   <div className="footer">
+					  <div className="footer-disclaimer">
+					  <p>This is project is not built for commercial purposes. All images belong to their rightful authors. All names, events, and locations are fictionary.</p> 
+					  <p>All rights reserved. 2018 ©</p></div>
+			  </div>
+			</div>
 			</div>
 		);
+
+
 	}
 }
 
