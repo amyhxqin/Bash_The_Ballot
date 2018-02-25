@@ -54,6 +54,7 @@ app.get('/candidates', function (req, res, next) {
 })
 
 var alreadyVoted = false;
+var voterId = 0;
 app.post('/vote', function (req, res, next) {
 	console.log('Submitting Vote');
 	sql.connect(config, function (err) {
@@ -69,25 +70,30 @@ app.post('/vote', function (req, res, next) {
         // query to the database and get the records
         request.query('SELECT * FROM eligible WHERE address = \''+ req.body.address +'\'', function (err, recordset) { 
             if (err) console.log(err);
-     		if (recordset.recordsets == [[]]){
+     		if (recordset.recordsets[0].length == 0){
      			console.log(recordset);
      			alreadyVoted = false;
      		}
      		else{
+     			console.log(recordset);
      			alreadyVoted = true;
      		}
      		next();
-     		res.end();
         });
     });
 }, function (req, res, next){
+	sql.close();
+	sql.connect(config, function (err) {
+        if (err) {
+        	sql.close();
+        	console.log(err);
+        }
         var request = new sql.Request();
 		if(alreadyVoted){
 			console.log("alreadyVoted");
 			request.query("UPDATE eligible SET firstName='"+req.body.first+"', lastName='"+req.body.last+"', submitted=1, address='"+
 				req.body.address+"', location='"+req.body.location+"', phone='"+req.body.phone+"' WHERE address='"+req.body.address+"'", function (err) { 
 	            if (err) console.log(err);
-	     		res.end();
 	     		next();
 	        });
 		}
@@ -101,56 +107,94 @@ app.post('/vote', function (req, res, next) {
 	        req.body.location +'\', \''+
 	        req.body.phone +'\')', function (err) { 
 	            if (err) console.log(err);
-	     		res.end();
 	     		next();
 	        });
 		}
+    });
+}, function (req, res, next){
+	sql.close();
+	sql.connect(config, function (err) {
+        if (err) {
+        	sql.close();
+        	console.log(err);
+        }
+		var request = new sql.Request();
+			console.log("getting voterId");
+			request.query("SELECT voterId FROM eligible WHERE address='"+req.body.address+"'", function (err, recordset) { 
+	            if (err) console.log(err);
+	     		voterId = recordset.recordset[0].voterId;
+	     		console.log(recordset.recordset[0].voterId);
+	     		console.log(voterId);
+	     		next();
+	        });
+    });
+}, function (req, res, next){
+	sql.close();
+	sql.connect(config, function (err) {
+        if (err) {
+        	sql.close();
+        	console.log(err);
+        }
+		var request = new sql.Request();
+			if(alreadyVoted){
+				console.log("alreadyVoted");
+				request.query("UPDATE ballot SET candidateID='"+req.body.candidate+"' WHERE voterId='"+voterId+"'", function (err) { 
+		            if (err) console.log(err);
+		     		next();
+		        });
+			}
+			else{
+				console.log("newVoter");
+			 	request.query('INSERT INTO ballot (voterId, candidateID) VALUES (\''+
+		        voterId +'\', \''+
+		        req.body.candidate +'\')', function (err) { 
+		            if (err) console.log(err);
+		     		next();
+		        });
+			}
+	});
+}, function (req, res){
+	sql.close();
+	res.end();
+})
+
+app.get('/count', function (req, res, next){
+	sql.connect(config, function (err) {
+	console.log("newVoter");
+
+	    var request = new sql.Request();
+	 	request.query('SELECT candidates.firstName, candidates.lastName, voteSum.totalVotes FROM candidates, (SELECT COUNT(candidateId) AS totalVotes, candidateId FROM ballot GROUP BY candidateId) AS voteSum WHERE voteSum.candidateId=candidates.id;', function (err, recordset) { 
+	    	    if (err) console.log(err);
+	 			res.send(recordset.recordset);
+	 			res.end();
+	 			next();
+	    });
+ 	});
 }, function (req, res){
 	sql.close();
 })
 
-function queryEligible(id)
-   { console.log('Reading row from the eligible');
+app.post('/vote2', function (req, res, next){
+	
+	sql.connect(config, function (err) {
+	console.log("newVoter");
 
-       // Read all rows from table
-     request = new Request(
-          ("SELECT firstName, lastName FROM eligible WHERE voterId=" + id),
-             function(err, rowCount, rows) 
-                {
-                    console.log("rowCount: " + rowCount);
-                    process.exit();
-                }
-            );
-
-     request.on('row', function(columns) {
-        columns.forEach(function(column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
-         });
-             });
-     connection.execSql(request);
-   }
-
-
-function changeVoter()
-	{ console.log('Reading rows from the Table...');
-
-	   // Read all rows from table
-	 request = new Request(
-	      "UPDATE eliible SET firstName='dsadsadsad' WHERE voterId = ",
-	         function(err, rowCount, rows) 
-	            {
-	                console.log(rowCount + ' row(s) returned');
-	                process.exit();
-	            }
-	        );
-
-	 request.on('row', function(columns) {
-	    columns.forEach(function(column) {
-	        console.log("%s\t%s", column.metadata.colName, column.value);
-	     });
-	         });
-	 connection.execSql(request);
-	}
+    var request = new sql.Request();
+ 	request.query('INSERT INTO eligible (firstName, lastName, submitted, address, location, phone) VALUES (\''+
+    req.body.first +'\', \''+
+    req.body.last +'\', '+
+    req.body.submitted +', \''+
+    req.body.address +'\', \''+
+    req.body.location +'\', \''+
+    req.body.phone +'\')', function (err) { 
+        if (err) console.log(err);
+ 		res.end();
+ 		next();
+    });
+ });
+}, function (req, res, next){
+	sql.close();
+})
 
 //voterId, firstName, lastName, submitted, address, location, phone
 
