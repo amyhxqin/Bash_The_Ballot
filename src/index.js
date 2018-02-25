@@ -361,8 +361,7 @@ class Container extends React.Component {
 				<p>You may be wondering why Mr Goose Toronto rarely shows his face in public, but that's because he's busy taking care of his little gooselings at home! Vote for Mr Goose Toronto and perhaps he will bless the public with pictures of his cute children. 
 				Few words explaining ideals of mr goose toronto Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
-				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
-				Fusce eros t</p>
+				</p>
 			</div>
 			<div className ="candidateC">
 				<img src={bird3} width ="200px"/>
