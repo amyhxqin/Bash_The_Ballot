@@ -277,7 +277,7 @@ z-index: 1;
 
 .ballot-back{
 	position: absolute;
-	top: 10px;
+	top: 20px;
 	left: 10px;
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 								font-size: 1em;
@@ -286,5 +286,4 @@ z-index: 1;
 	background-color: #808B96;
 
 								margin-left: 0px;
-								position: relative;
 								}

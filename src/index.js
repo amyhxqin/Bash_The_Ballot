@@ -86,7 +86,7 @@ var data = [
 //function index(e).
 var mainContent = (
 	<div className="content">
-    		<h1 align="center">Welcome to Bash the Ballot!</h1>
+    		<h1 align="center">Welcome to Elections Birdtown!</h1>
     		<h2 align="center">Current Number of Votes for Each Candidate</h2>
     		<div align="center">
 	    		<Charts.Pie 
