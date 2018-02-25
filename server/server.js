@@ -53,7 +53,8 @@ app.get('/candidates', function (req, res, next) {
 	sql.close();
 })
 
-app.post('/vote', function (req, res) {
+var alreadyVoted = false;
+app.post('/vote', function (req, res, next) {
 	console.log('Submitting Vote');
 	sql.connect(config, function (err) {
     
@@ -66,17 +67,46 @@ app.post('/vote', function (req, res) {
         var request = new sql.Request();
            
         // query to the database and get the records
-        request.query('INSERT INTO eligible (firstName, lastName, submitted, address, location, phone) VALUES (\''+
-        req.body.first +'\', \''+
-        req.body.last +'\', '+
-        req.body.submitted +', \''+
-        req.body.address +'\', \''+
-        req.body.location +'\', \''+
-        req.body.phone +'\')', function (err) { 
+        request.query('SELECT * FROM eligible WHERE address = \''+ req.body.address +'\'', function (err, recordset) { 
             if (err) console.log(err);
-     			res.end();
+     		if (recordset.recordsets == [[]]){
+     			console.log(recordset);
+     			alreadyVoted = false;
+     		}
+     		else{
+     			alreadyVoted = true;
+     		}
+     		next();
+     		res.end();
         });
     });
+}, function (req, res, next){
+        var request = new sql.Request();
+		if(alreadyVoted){
+			console.log("alreadyVoted");
+			request.query("UPDATE eligible SET firstName='"+req.body.first+"', lastName='"+req.body.last+"', submitted=1, address='"+
+				req.body.address+"', location='"+req.body.location+"', phone='"+req.body.phone+"' WHERE address='"+req.body.address+"'", function (err) { 
+	            if (err) console.log(err);
+	     		res.end();
+	     		next();
+	        });
+		}
+		else{
+			console.log("newVoter");
+		 	request.query('INSERT INTO eligible (firstName, lastName, submitted, address, location, phone) VALUES (\''+
+	        req.body.first +'\', \''+
+	        req.body.last +'\', '+
+	        req.body.submitted +', \''+
+	        req.body.address +'\', \''+
+	        req.body.location +'\', \''+
+	        req.body.phone +'\')', function (err) { 
+	            if (err) console.log(err);
+	     		res.end();
+	     		next();
+	        });
+		}
+}, function (req, res){
+	sql.close();
 })
 
 function queryEligible(id)
@@ -100,26 +130,6 @@ function queryEligible(id)
      connection.execSql(request);
    }
 
-function addVoter()
-   { console.log('Adding voter to table');
-
-       // Read all rows from table
-     request = new Request(
-          "INSERT INTO eligible (firstName, lastName, submitted, address, location, phone) VALUES ()",
-             function(err, rowCount, rows) 
-                {
-                    console.log(rowCount + ' row(s) returned');
-                    process.exit();
-                }
-            );
-
-     request.on('row', function(columns) {
-        columns.forEach(function(column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
-         });
-             });
-     connection.execSql(request);
-   }
 
 function changeVoter()
 	{ console.log('Reading rows from the Table...');
