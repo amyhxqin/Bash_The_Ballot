@@ -2,7 +2,7 @@
   "name": "htv2",
   "version": "0.1.0",
   "private": true,
-  "proxy":"http://localhost:80",
+  "proxy":"http://localhost:1337",
   "dependencies": {
     "chart.js": "^1.1.1",
     "jquery": "^3.3.1",
