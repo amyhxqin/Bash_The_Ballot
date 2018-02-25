@@ -12,6 +12,9 @@ import Charts from 'react-chartjs';
 //Pages with dummy content
 //All (feel free to add/modify content)
 
+//IMPORTANT: to run the code, please make sure you have react-chartjs installed
+//Link: https://github.com/reactjs/react-chartjs
+
 //Sticky navigation bar with jQuery
 require("jsdom").env("", function(err, window) {
     if (err) {
