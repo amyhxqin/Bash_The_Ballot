@@ -4,7 +4,11 @@ import { findDOMNode } from "react-dom";
 import $ from "jquery";
 import './index.css';
 import RC2 from 'react-chartjs2';
-
+import { BrowserRouter } from 'react-router-dom';
+import goose1 from './goose1.png';
+import goose2 from './goose2.png';
+//import goose3 from './goose3.png'
+;
 require("jsdom").env("", function(err, window) {
     if (err) {
         console.error(err);
@@ -31,6 +35,7 @@ $(function(){
 
 });
 
+
 var mainContent = (
 	<div className="content">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -46,8 +51,8 @@ var mainContent = (
 
 var mainBanner = (
 	<div className="banner">
-	<img className="banner-image" src="https://media.istockphoto.com/photos/election-vote-buttons-picture-id513643990" width ="100%"/>
-	<div className="banner-text">Bash the Ballot</div>
+	<img className="banner-image" src="https://www.canada.ca/content/canadasite/en/services/culture/cultural-attractions/attractions-canada-capital/parliament-hill/_jcr_content/par/adaptiveimage/image.img.jpg/1512936160913.jpg" width ="100%"/>
+	<div className="banner-text">Elections Waterloo</div>
 	</div>
 	);
 class Banner extends React.Component{
@@ -87,23 +92,42 @@ class Container extends React.Component {
 
 
   	vote(e) {
-    e.preventDefault();
-    mainContent = (<div className="content">
-				<h1 align="center">Vote!</h1>
-		</div>)
 
-	ReactDOM.render(
-  		<Container />,
-  		document.getElementById('root')
-	);
-
+		const url = '/vote'; //insert here later
+		window.open(url, '_blank');
   	}
 
   	candidates(e) {
     e.preventDefault();
     mainContent = (<div className="content">
 				<h1 align="center">Candidates</h1>
-		</div>)
+	    		<div className = "candidateA">
+	    		<img src={goose1} width ="200px"/>
+			<h2> Mr. Goose, Waterloo </h2>
+	    		<p>Few words explaining ideals of mr goose 
+	    			akjfhkajdhf akjsdhafksjd akjsdfLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
+	    		Fusce eros t</p>
+	    		</div>
+	    		<div className ="candidateB">
+	    		<img src={goose2} width ="200px"/>
+			<h2> Mr. Goose, Toronto </h2>
+	    		<p>Few words explaining ideals of mr goose o.f. toronto Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
+	    		Fusce eros t</p>
+			</div>
+	    /*
+			<div className ="candidateC">
+	    		<img src={goose3} width ="200px"/>
+			<h2> Mr. Goose, McMaster </h2>
+	    		<p>Few words explaining ideals of mr goose from McMaster Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
+	    		Fusce eros t</p>
+			</div> */
+    </div>)
 
 	ReactDOM.render(
   		<Container />,
@@ -160,7 +184,8 @@ class Container extends React.Component {
 	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
 	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
 	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
-				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				<p>A: Lorem ipsum dolor sit amet, consectetur adipiscing :wq
+	    elit. 
 	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
 	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
 	    		<p><strong>Q: Donec a velit eget lectus pretium imperdiet vel eu justo?</strong></p>
