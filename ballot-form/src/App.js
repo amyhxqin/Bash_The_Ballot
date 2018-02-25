@@ -68,7 +68,7 @@ class BallotForm extends React.Component {
 		  uport.requestAddress().then((address) => {
 		  	add = address;
 			  request
-		         .post('http://localhost:1337/vote')
+		         .post('http://bash-the-ballot.azurewebsites.net/vote')
 		         .set('Content-Type', 'application/x-www-form-urlencoded')
 		         .send({ 
 		         first: "Null",
