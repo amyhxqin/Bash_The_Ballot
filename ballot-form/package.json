@@ -2,7 +2,7 @@
   "name": "ballot-form",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://bash-the-ballot.azurewebsites.net",
+  "proxy": "http://localhost:80",
   "dependencies": {
     "browser-request": "^0.3.3",
     "react": "^16.2.0",
