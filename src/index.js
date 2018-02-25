@@ -1,3 +1,4 @@
+import {Router, Route} from 'react-router';
 import React, {Component} from 'react';
 import ReactDOM from "react-dom";
 import { findDOMNode } from "react-dom";
@@ -10,6 +11,11 @@ import goose2 from './goose2.png';
 import bird3 from './bird3.png';
 import bird4 from './bird4.png';
 import Charts from 'react-chartjs';
+import request from "../node_modules/superagent/superagent";
+import { Connect, SimpleSigner } from 'uport-connect'
+import { QRUtil } from 'uport-connect'
+
+//import BallotForm from './ballot-form/src/App.js';
 
 //Pages without content yet:
 //Candidates
@@ -56,25 +62,25 @@ var data = [
 //Candidate 1 = mr waterloo goose
 	{
 		label: 'Mr Goose, Waterloo', //name of candidate
-		value: 100, //# of votes
+		value: 1, //# of votes
 		color: '#A3D6F1' //color of portion
 	},
 //Candidate 2 = mr toronto goose
 	{
 		label: 'Mr Goose, Toronto', //name of candidate
-		value: 200, //# of votes
+		value: 2, //# of votes
 		color: '#D7BDE2' //color of portion
 	},
 //Candidate 3
 	{
 		label: 'Sir Snow Bunting', //name of candidate
-		value: 300, //# of votes
+		value: 3, //# of votes
 		color: '#A3E4D7' //color of portion
 	},
 //Candidate 4
 	{
 		label: 'Mrs Bullfinch', //name of candidate
-		value: 400, //# of votes
+		value: 4, //# of votes
 		color: '#FAD7A0' //color of portion
 	}
 ];
@@ -136,7 +142,7 @@ class Container extends React.Component {
 	//The following functions modify the content class when a corresponding navigation button is clicked.
 	
 	componentDidUpdate() {
-		fetch('/count')
+		fetch('http://localhost/count')
 		.then(res => res.json())
 		.then(items => this.setState({ items }));
 		data[0].value = this.state.items[0].totalVotes;
@@ -144,7 +150,7 @@ class Container extends React.Component {
 		data[2].value = this.state.items[2].totalVotes;
 		data[3].value = this.state.items[3].totalVotes;
 	}
-	
+
 	//Home page
 	index(e) {
     e.preventDefault();
@@ -173,12 +179,142 @@ class Container extends React.Component {
 	);
 
   	}
-
-
   	vote(e) {
+		e.preventDefault();
+		//const url ='bash-the-ballot.azurewebsites.net/vote';
+		//const url = 'localhost:3000/vote';
+		//window.open(url, '_blank');
+		
+		const uport = new Connect('My Dashboard', {
+			clientId: '2opbeBTfzsso2PtiHFhV7DhjhCZsDCQrGfx',
+			network: 'rinkeby',
+			signer: SimpleSigner('5f3516cc526f7e33a2a95245564d04ba478e4551f83177791bc49739d786f742')
+		  })
+   
+   class Name extends React.Component {
+	 render() {
+	   return (
+		 <div className="Name">
+			<div>{this.props.name}</div>
+		 </div>
+	   );
+	 }
+   }
+   
+   function createMarkup(text) {
+			 return {__html: text};
+		   }
 
-		const url = '/vote'; //insert here later
-		window.open(url, '_blank');
+		   class BallotForm extends React.Component {
+			constructor(props) {
+					super(props);
+					this.state = {selectedOption: '', items: [{id:'',firstName:'',lastName:''},{id:'',firstName:'',lastName:''},{id:'',firstName:'',lastName:''},{id:'',firstName:'',lastName:''}]};
+	  
+					this.handleOptionChange = this.handleOptionChange.bind(this);
+					this.handleOptionSubmit = this.handleOptionSubmit.bind(this);
+				  }
+	  
+			  //http://bash-the-ballot.azurewebsites.net/candidates		
+			  // componentDidMount() {
+			  // 	fetch('/candidates') 
+			  // 	    .then(function(res){
+			  // 	        //this.setState({ items: JSON.stringify(res)});
+			  // 	        alert(JSON.stringify(res));
+			  // 	    }
+			  // 	   ).catch(function(error){
+			  // 	   		alert(error);
+			  // 	   });
+		   //   	}
+		   componentWillMount() {
+			  fetch('/candidates')
+				.then(res => res.json())
+				.then(items => this.setState({ items }));
+			}
+	  
+	  
+			handleOptionChange(event) {
+					this.setState({selectedOption: event.target.value});
+				  }
+	  
+			handleOptionSubmit(event) { 
+					
+					if (this.state.selectedOption == ''){return;}
+					else if(this.state.selectedOption == 'option1') {var candidate = this.state.items[0].id;}
+					else if(this.state.selectedOption == 'option2') {var candidate = this.state.items[1].id;}
+					else if(this.state.selectedOption == 'option3') {var candidate = this.state.items[2].id;}
+					else if(this.state.selectedOption == 'option4') {var candidate = this.state.items[3].id;}
+					else {return;}
+	  
+				var cred, add;
+				uport.requestAddress().then((address) => {
+					add = address;
+					request
+					   .post('http://bash-the-ballot.azurewebsites.net/vote')
+					   .set('Content-Type', 'application/x-www-form-urlencoded')
+					   .send({ 
+					   first: "Null",
+					   last: "Null",
+					   phone: "Null",
+					   location: "Null",
+					   submitted: 1,
+					   address: add,
+					   candidate: candidate
+				   })
+					   .end(function(err, res){
+				  });
+	  
+				})
+			}	
+	  
+			
+	  
+	  //<div dangerouslySetInnerHTML={createMarkup(this.state.items[0].firstName)} />
+	  
+			render() {
+					const title = 'BALLOT';
+	  
+					return (
+						<div className="ballot-background">
+							  <div className = "ballot-container">
+					  <div className = "title">{title}</div>
+						<form onSubmit={this.handleSubmit}>
+							   <div className = "radio">
+								<Name name={this.state.items[0].firstName +' '+ this.state.items[0].lastName}/>
+								<input type="radio" value="option1" 
+								  checked={this.state.selectedOption === 'option1'}             
+								  onChange={this.handleOptionChange} />
+							  </div>
+							  <div className = "radio">
+								<Name name={this.state.items[1].firstName +' '+ this.state.items[1].lastName}/>
+								<input type="radio" value="option2" 
+								  checked={this.state.selectedOption === 'option2'}             
+								  onChange={this.handleOptionChange} />
+							  </div>
+								<div className = "radio">
+								<Name name={this.state.items[2].firstName +' '+ this.state.items[2].lastName}/>
+								  <input type="radio" value="option3" 
+								  checked={this.state.selectedOption === 'option3'}             
+								  onChange={this.handleOptionChange} />
+							  </div>
+								<div className = "radio">
+								<Name name={this.state.items[3].firstName +' '+ this.state.items[3].lastName}/>
+								  <input type="radio" value="option4" 
+								  checked={this.state.selectedOption === 'option4'}             
+								  onChange={this.handleOptionChange} />
+							  </div>
+							  </form>
+							  <button className="submit-btn" type="submit" onClick = {this.handleOptionSubmit}>Submit</button>
+							  <p>To return to the website, please refresh.</p>
+							  </div> 
+							</div>
+					);
+				}
+			}
+
+		ReactDOM.render(
+			  <BallotForm />,
+			  document.getElementById('root')
+		);
   	}
 
   	candidates(e) {
@@ -188,16 +324,15 @@ class Container extends React.Component {
 	    		<div className = "candidateA">
 				<img src={goose1} width ="200px"/>
 				<h2> Mr Goose, Waterloo </h2>
-				<p>Few words explaining ideals of mr goose 
-					akjfhkajdhf akjsdhafksjd akjsdfLorem ipsum dolor sit amet, consectetur adipiscing elit. 
-				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+				<p>Honk Honk Honk! Mr Goose, from Waterloo, is here to answer all your prayers! Upset over the broken promises of politicans? Angry that nothing ever seems to be done? Furious that nobody ever listens? When you vote for Mr Goose, you're voting for change! For an innovative tomorrow! akjfhkajdhf akjsdhafksjd akjsdfLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	    Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
 				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
 				Fusce eros t</p>
 	    		</div>
 				<div className ="candidateB">
 				<img src={goose2} width ="200px"/>
 				<h2> Mr Goose, Toronto </h2>
-				<p>Few words explaining ideals of mr goose o.f. toronto Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				<p>Few words explaining ideals of mr goose toronto Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
 				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc. 
 				Fusce eros t</p>
@@ -224,7 +359,7 @@ class Container extends React.Component {
   		document.getElementById('root')
 	);
 	}
-
+/*
 	//Vote! page
   	vote(e) {
     e.preventDefault();
@@ -238,7 +373,7 @@ class Container extends React.Component {
 	);
 
   	}
-
+*/
   	//FAQ page
 	faq(e) {
     e.preventDefault();
@@ -347,7 +482,7 @@ class Container extends React.Component {
 }
 
 //Render the whole page
-ReactDOM.render(
+ReactDOM.render (
   <Container />,
   document.getElementById('root')
 );
