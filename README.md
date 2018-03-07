@@ -6,7 +6,7 @@ Bash The Ballot is a React voting platform that tackles the issues of fraud and 
 
 The current web app is a simulation of an election in the fictional town of Birdtown, where the candidates are - unsurprisingly - all birds. The user can consult election statistics on the home page, which displays a pie chart with the real-time number of votes for each candidate, as shown below.
 
-![Pie chart with statistics on the votes distribution] (screenshot1.png)
+![Pie chart with statistics on the votes distribution] (https://github.com/amyhxqin/Bash_The_Ballot/blob/master/screenshot1.png)
 
 The user votes through a html form and, after submitting his or her choice, the user is prompted to verify his or her identity through uPort (QR), where the user confirms personal information.
 
