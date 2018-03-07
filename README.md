@@ -1,4 +1,4 @@
-## Bash The Ballot
+# Bash The Ballot
 
 This project is built for Hack the Valley 2 and has won the Best Use of the ConsenSys API.
 
@@ -10,7 +10,7 @@ The current web app is a simulation of an election in the fictional town of Bird
 
 The user votes through a html form and, after submitting his or her choice, the user is prompted to verify his or her identity through uPort (QR), where the user confirms personal information.
 
-# Prospects and Benefits
+## Prospects and Benefits
 
 We believe that the Bash The Ballot platform can be used not only for elections, but for any event requiring an audience to vote, such as policy voting.
 
