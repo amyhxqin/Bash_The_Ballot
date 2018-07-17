@@ -146,7 +146,7 @@ class Container extends React.Component {
 		data[3].value = this.state.items[3].totalVotes;
 	}
 
-	componentWillRecieveProps() {
+	componentDidUpdate() {
 		data[0].value = this.state.items[0].totalVotes;
 		data[1].value = this.state.items[1].totalVotes;
 		data[2].value = this.state.items[2].totalVotes;
@@ -249,6 +249,9 @@ class Container extends React.Component {
 	  
 				var cred, add;
 				uport.requestAddress().then((address) => {
+					uport.requestCredentials().then((credentials) => {
+						console.log(credentials)
+					})
 					add = address;
 					request
 					   .post('/vote')
