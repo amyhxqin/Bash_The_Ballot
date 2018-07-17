@@ -270,10 +270,10 @@ class Container extends React.Component {
 			handleOptionSubmit(event) { 
 					
 					if (this.state.selectedOption == ''){return;}
-					else if(this.state.selectedOption == this.state.items[0].firstName) {var candidate = this.state.items[0].id;}
-					else if(this.state.selectedOption == this.state.items[1].firstName) {var candidate = this.state.items[1].id;}
-					else if(this.state.selectedOption == this.state.items[2].firstName) {var candidate = this.state.items[2].id;}
-					else if(this.state.selectedOption == this.state.items[3].firstName) {var candidate = this.state.items[3].id;}
+					else if(this.state.selectedOption == this.state.items[0].lastName) {var candidate = this.state.items[0].id;}
+					else if(this.state.selectedOption == this.state.items[1].lastName) {var candidate = this.state.items[1].id;}
+					else if(this.state.selectedOption == this.state.items[2].lastName) {var candidate = this.state.items[2].id;}
+					else if(this.state.selectedOption == this.state.items[3].lastName) {var candidate = this.state.items[3].id;}
 					else {return;}
 	  
 				var cred, add;
@@ -341,26 +341,26 @@ class Container extends React.Component {
 						<form onSubmit={this.handleSubmit}>
 							   <div className = "radio">
 								<Name name={this.state.items[0].firstName +' '+ this.state.items[0].lastName}/>
-								<input type="radio" value={this.state.items[0].firstName} 
-								  checked={this.state.selectedOption === this.state.items[0].firstName}             
+								<input type="radio" value={this.state.items[0].lastName} 
+								  checked={this.state.selectedOption === this.state.items[0].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
 							  <div className = "radio">
 								<Name name={this.state.items[1].firstName +' '+ this.state.items[1].lastName}/>
-								<input type="radio" value={this.state.items[1].firstName} 
-								  checked={this.state.selectedOption === this.state.items[1].firstName}             
+								<input type="radio" value={this.state.items[1].lastName} 
+								  checked={this.state.selectedOption === this.state.items[1].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
 								<div className = "radio">
 								<Name name={this.state.items[2].firstName +' '+ this.state.items[2].lastName}/>
-								<input type="radio" value={this.state.items[2].firstName} 
-								  checked={this.state.selectedOption === this.state.items[2].firstName}             
+								<input type="radio" value={this.state.items[2].lastName} 
+								  checked={this.state.selectedOption === this.state.items[2].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
 								<div className = "radio">
 								<Name name={this.state.items[3].firstName +' '+ this.state.items[3].lastName}/>
-								<input type="radio" value={this.state.items[3].firstName} 
-								  checked={this.state.selectedOption === this.state.items[3].firstName}             
+								<input type="radio" value={this.state.items[3].lastName} 
+								  checked={this.state.selectedOption === this.state.items[3].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
 							  </form>
