@@ -12,9 +12,9 @@ var sql = require("mssql");
 // Create connection to database
 var config = 
    {
-     user: 'bash', // update me
+     user: 'root', // update me
      password: 'ballot-1234', // update me
-     server: 'bashtheballot.database.windows.net', // update me
+     server: '35.190.191.86', // update me
      database: 'BashtheBallotDB',
      encrypt: true,
      options: {
