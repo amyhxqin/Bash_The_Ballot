@@ -148,6 +148,7 @@ class Container extends React.Component {
 		data[2].value = this.state.items[2].totalVotes;
 		data[3].value = this.state.items[3].totalVotes;
 	
+		this.setState(data);
 		mainContent = (	
 		<div className="content">
     			<h1 align="center">Welcome to Elections Birdtown!</h1>
