@@ -342,13 +342,13 @@ class Container extends React.Component {
 							   <div className = "radio">
 								<Name name={this.state.items[0].firstName +' '+ this.state.items[0].lastName}/>
 								<input type="radio" value={this.state.items[0].firstName} 
-								  checked={this.state.selectedOption === this.state.items[0].firstname}             
+								  checked={this.state.selectedOption === this.state.items[0].firstName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
 							  <div className = "radio">
 								<Name name={this.state.items[1].firstName +' '+ this.state.items[1].lastName}/>
 								<input type="radio" value={this.state.items[1].firstName} 
-								  checked={this.state.selectedOption === this.state.items[1].firstname}             
+								  checked={this.state.selectedOption === this.state.items[1].firstName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
 								<div className = "radio">
