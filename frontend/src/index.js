@@ -137,23 +137,6 @@ class Container extends React.Component {
 	//The following functions modify the content class when a corresponding navigation button is clicked.
 	
 	componentDidMount() {
-		mainContent = (	
-			<div className="content">
-				<h1 align="center">Welcome to Elections Birdtown!</h1>
-				<h2 align="center">Current Number of Votes for Each Candidate</h2>
-				<div align="center">
-					<Charts.Pie 
-						data={data}
-						width="300" 
-						height="300"
-
-					/>
-				</div>
-				<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-					Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
-					Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
-			</div>
-		);
 		fetch('/count')
 		.then((res) => {
 			return res.json();
@@ -166,6 +149,25 @@ class Container extends React.Component {
 			data[2].value = this.state.items[2].totalVotes;
 			data[3].value = this.state.items[3].totalVotes;	
 			this.setState({ items: res })
+			
+			mainContent = (	
+				<div className="content">
+					<h1 align="center">Welcome to Elections Birdtown!</h1>
+					<h2 align="center">Current Number of Votes for Each Candidate</h2>
+					<div align="center">
+						<Charts.Pie 
+							data={this.state.items}
+							width="300" 
+							height="300"
+
+						/>
+					</div>
+					<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+						Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+						Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+				</div>
+			);
+			this.forceUpdate();
 		})
 	
 	}
