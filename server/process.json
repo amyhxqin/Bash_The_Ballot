@@ -1,6 +1,6 @@
     {
       "name"        : "worker",
-      "script"      : "./index.js",
+      "script"      : "./server.js",
       "instances"   : 1,
       "merge_logs"  : true,
       "log_date_format" : "YYYY-MM-DD HH:mm Z",

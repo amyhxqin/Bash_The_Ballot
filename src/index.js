@@ -136,10 +136,17 @@ class Container extends React.Component {
 
 	//The following functions modify the content class when a corresponding navigation button is clicked.
 	
-	componentDidUpdate() {
+	componentDidMount() {
 		fetch('/count')
 		.then(res => res.json())
 		.then(items => this.setState({ items }));
+		data[0].value = this.state.items[0].totalVotes;
+		data[1].value = this.state.items[1].totalVotes;
+		data[2].value = this.state.items[2].totalVotes;
+		data[3].value = this.state.items[3].totalVotes;
+	}
+
+	componentWillRecieveProps() {
 		data[0].value = this.state.items[0].totalVotes;
 		data[1].value = this.state.items[1].totalVotes;
 		data[2].value = this.state.items[2].totalVotes;
