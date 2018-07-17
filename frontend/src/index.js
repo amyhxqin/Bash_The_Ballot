@@ -142,14 +142,14 @@ class Container extends React.Component {
 			return res.json();
 		})
 		.then((res) => {	
-			console.log(this.state);
-			console.log(mainContent);	
 			data[0].value = this.state.items[0].totalVotes;
 			data[1].value = this.state.items[1].totalVotes;
 			data[2].value = this.state.items[2].totalVotes;
 			data[3].value = this.state.items[3].totalVotes;	
-			this.setState({ items: res })
+			this.setState({ items: data })
 			
+			console.log(this.state);
+			console.log(mainContent);	
 			mainContent = (	
 				<div className="content">
 					<h1 align="center">Welcome to Elections Birdtown!</h1>
