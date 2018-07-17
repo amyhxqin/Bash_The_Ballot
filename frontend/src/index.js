@@ -149,8 +149,6 @@ class Container extends React.Component {
 			data[3].value = this.state.items[3].totalVotes;	
 			this.setState({ data: data })
 			
-			console.log(this.state);
-			console.log(mainContent);	
 			mainContent = (	
 				<div className="content">
 					<h1 align="center">Welcome to Elections Birdtown!</h1>
@@ -281,9 +279,6 @@ class Container extends React.Component {
 	  
 				var cred, add;
 				uport.requestAddress().then((address) => {
-					uport.requestCredentials().then((credentials) => {
-						console.log(credentials)
-					})
 					add = address;
 					request
 					   .post('/vote')
