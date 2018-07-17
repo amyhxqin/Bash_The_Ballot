@@ -1,0 +1,44 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/jono1202/.nvm/versions/node/v5.0.0/bin/node',
+1 verbose cli   '/home/jono1202/.nvm/versions/node/v5.0.0/bin/npm',
+1 verbose cli   'start' ]
+2 info using npm@3.3.6
+3 info using node@v5.0.0
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle htv2@0.1.0~prestart: htv2@0.1.0
+6 silly lifecycle htv2@0.1.0~prestart: no script for prestart, continuing
+7 info lifecycle htv2@0.1.0~start: htv2@0.1.0
+8 verbose lifecycle htv2@0.1.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle htv2@0.1.0~start: PATH: /home/jono1202/.nvm/versions/node/v5.0.0/lib/node_modules/npm/bin/node-gyp-bin:/home/jono1202/Bash_The_Ballot/node_modules/.bin:/home/jono1202/bin:/home/jono1202/.local/bin:/home/jono1202/.nvm/versions/node/v5.0.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+10 verbose lifecycle htv2@0.1.0~start: CWD: /home/jono1202/Bash_The_Ballot
+11 silly lifecycle htv2@0.1.0~start: Args: [ '-c', 'react-scripts start' ]
+12 silly lifecycle htv2@0.1.0~start: Returned: code: 1  signal: null
+13 info lifecycle htv2@0.1.0~start: Failed to exec start script
+14 verbose stack Error: htv2@0.1.0 start: `react-scripts start`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/home/jono1202/.nvm/versions/node/v5.0.0/lib/node_modules/npm/lib/utils/lifecycle.js:233:16)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at EventEmitter.emit (events.js:172:7)
+14 verbose stack     at ChildProcess.<anonymous> (/home/jono1202/.nvm/versions/node/v5.0.0/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at ChildProcess.emit (events.js:172:7)
+14 verbose stack     at maybeClose (internal/child_process.js:818:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+15 verbose pkgid htv2@0.1.0
+16 verbose cwd /home/jono1202/Bash_The_Ballot
+17 error Linux 4.13.0-1011-azure
+18 error argv "/home/jono1202/.nvm/versions/node/v5.0.0/bin/node" "/home/jono1202/.nvm/versions/node/v5.0.0/bin/npm" "start"
+19 error node v5.0.0
+20 error npm  v3.3.6
+21 error code ELIFECYCLE
+22 error htv2@0.1.0 start: `react-scripts start`
+22 error Exit status 1
+23 error Failed at the htv2@0.1.0 start script 'react-scripts start'.
+23 error This is most likely a problem with the htv2 package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     react-scripts start
+23 error You can get their info via:
+23 error     npm owner ls htv2
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

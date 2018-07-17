@@ -1,0 +1,289 @@
+/*@impor://fonts.googleapis.com/css?family=Josefin+Sans');
+ * i
+ */
+ @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500|Open+Sans');
+	
+div className="banner-text"><strong>Bash the Ballot</strong></div>
+html, body{
+	margin: 0;
+	width: 100%;
+	background-color: #FFFFFF;
+	height: 100%;
+
+}
+
+h1, h2{
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+p{
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+
+}
+
+.wrap{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	padding: 0;
+}
+
+.navbar{
+	margin: 0;
+   	padding: 0;
+    	overflow: hidden;
+    	width: 100%;
+	height: 60px;
+	background-color: #c4ccd1;
+	}
+
+.navbar-link{
+	width: 25%;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	height: 100%;
+	float: left;
+	text-align: center;
+	padding-top: 5px;
+	border: none;
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 1.5em;
+}
+.navbar-link:hover {
+    background-color: #808B96;
+    color: white;  
+}
+
+.banner{
+	margin: 0px;
+	width: 100%;
+	padding: 0;
+	height: 300px;
+	background-color: transparent;
+	overflow: hidden;
+}
+/*
+.banner h1 {
+  color: #566573;
+  text-align: center;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 4em;
+}
+*/
+.banner p {
+  text-align: center;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  color: #666666;
+  font-size: 1 em;
+}
+
+.banner-text{
+  	font-family: 'Josefin Sans', sans-serif;
+	font-size: 5em;
+	font-weight: 500;
+	color: #667399;
+	padding: 0;
+	z-index: 1;
+	position: absolute;
+  	top: 150px;
+    	margin-left: 150px;
+}
+
+.banner-image{
+	z-index: 0;
+	opacity: 0.5;
+	width: 100%;
+	margin:0;
+	padding:0;
+	position: relative;
+	top:0;
+	left:0;
+}
+
+.content{
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	padding: 10px;
+	text-align: justify;
+}
+
+.candidateA {
+	background-color: #EBF5FB;
+	padding: 50px;
+	margin-left: 10%;
+	border-radius: 30px;
+	width: 700px;
+}
+
+.candidateB {
+	background-color: #F5EEF8;
+	border-radius: 30px;
+	margin-left: 10%;
+	width: 700px;
+	padding: 50px;
+}
+
+.candidateA img{
+	float: left;
+	opacity: 0.7;
+	margin-right: 30px;
+}	
+
+.candidateB img{
+	float: left;
+	opacity: 0.7;
+	margin-right: 30px;
+}
+
+.candidateC {
+	background-color: #E7FEF5;
+	border-radius: 30px;
+	margin-left: 10%;
+	width: 700px;
+	padding: 50px;
+}
+
+.candidateC img{
+	float: left;
+	opacity: 0.7;
+	margin-right: 30px;
+}
+
+.candidateD {
+	background-color: #FEF5E7;
+	border-radius: 30px;
+	margin-left: 10%;
+	width: 700px;
+	padding: 50px;
+}
+
+.candidateD img{
+	float: left;
+	opacity: 0.7;
+	margin-right: 30px;
+}
+
+.content h1 {
+ 	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	color: #667399;
+	font-size: 1.8em;
+	margin: 20px;
+
+}
+.content p {
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	color: #667399;
+	font-size: 1em;
+	margin: 20px;
+}
+.footer{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+   	width: 100%;
+	height: 60px;
+	background-color: #667399;
+	color: white;
+}
+
+.footer-disclaimer{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding-top: 2px;
+	background-color: transparent;
+	text-align: center;
+	font-size: 12px;
+}
+
+.fixed {
+position: fixed;
+left: 0px;
+top: 0px;
+right: 0px;
+z-index: 1;
+}
+
+.candidates-chart{
+	z-index: 100;
+	width: 90%;
+}
+
+.ballot-background{
+	background: #566573;
+	height:100%; 
+	width:100%;
+	margin:0;
+	position: absolute; 
+	top: 0; 
+	left: 0;
+	padding-top: 20px;
+}
+
+.ballot-container {
+	border-radius: 25px;  
+	  border: 2px solid black;
+		padding: 20px;
+		  width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+  }
+
+  .title {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+		font-size: 3.5em;
+		 font-style: normal;
+			 font-variant: normal;
+				 font-weight: 500;
+					 line-height: 30px;
+					   color: #FAE5D3;
+						 text-align: center;
+						   padding-top: 50px;
+							 padding-bottom: 50px;
+					 }
+
+.radio {
+	margin: 20px;
+	  position: relative;
+		font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+		font-size: 1.2em;
+			font-style: normal;
+				font-variant: normal;
+					font-weight: 500;
+						line-height: 20px;
+						color: #FAE5D3;
+						margin-left: 10px;
+						  }
+
+						  .submit-btn {
+							position: relative;
+							  left: 40%;
+								font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+								font-size: 1em;
+							}
+
+							.submit-btn:hover {
+								background-color: #808B96;
+							}
+							input[type="radio"] {
+								float: right;
+								  margin-left: 10px;
+									position: relative;
+								}
+
+.ballot-back{
+	position: absolute;
+	top: 20px;
+	left: 10px;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+								font-size: 1em;
+}
+.ballot-back:hover {
+	background-color: #808B96;
+
+								margin-left: 0px;
+								}

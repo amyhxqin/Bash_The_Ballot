@@ -1,28 +1,20 @@
 {
-  "name": "htv2",
-  "version": "0.1.0",
-  "private": true,
-  "proxy": "http://localhost:1337",
-  "dependencies": {
-    "chart.js": "^1.1.1",
-    "jquery": "^3.3.1",
-    "mssql": "^4.1.0",
-    "react": "^16.2.0",
-    "react-chartjs": "^1.2.0",
-    "react-chartjs2": "^1.2.1",
-    "react-dom": "^16.2.0",
-    "react-new-window": "0.0.4",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "save": "^2.3.2",
-    "superagent": "^3.8.2",
-    "uport-connect": "^0.7.0"
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for interacting with database",
+  "main": "server.js",
+  "engines": {
+    "node": ">=6.9.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && mv ./build ./server/build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "mssql": "^4.1.0"
   }
 }
