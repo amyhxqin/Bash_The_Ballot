@@ -144,7 +144,6 @@ class Container extends React.Component {
 		data[1].value = this.state.items[1].totalVotes;
 		data[2].value = this.state.items[2].totalVotes;
 		data[3].value = this.state.items[3].totalVotes;
-		this.forceUpdate();
 	}
 
 
@@ -157,7 +156,7 @@ class Container extends React.Component {
     		<h2 align="center">Current Number of Votes for Each Candidate</h2>
     		<div align="center">
 	    		<Charts.Pie 
-	    			data={data}
+	    			data={this.state.items}
 	    			width="300" 
 	    			height="300"
 
