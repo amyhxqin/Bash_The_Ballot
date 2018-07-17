@@ -154,7 +154,7 @@ class Container extends React.Component {
     			<h2 align="center">Current Number of Votes for Each Candidate</h2>
     			<div align="center">
 	    			<Charts.Pie 
-	    				data={data}
+	    				data={this.state.data}
 	    				width="300" 
 	    				height="300"
 
@@ -165,6 +165,7 @@ class Container extends React.Component {
 				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
 			</div>
 		);
+		this.setState(data);
 	}
 
 
