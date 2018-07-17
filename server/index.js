@@ -14,7 +14,7 @@ var sql = require("mssql");
 // Create connection to database
 var config = 
    {
-     user: 'root', // update me
+     user: 'bash', // update me
      password: 'ballot-1234', // update me
      server: 'btbserver.database.windows.net', // update me
      database: 'BashtheBallotDB',
@@ -26,7 +26,7 @@ var config =
    }
 
 
-app.use(express.static(path.join(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, './build')));
 app.get('/', function (req, res) {
 	console.log('serving files');
 	res.sendFile(path.join(__dirname, './build/', 'index.html'));
