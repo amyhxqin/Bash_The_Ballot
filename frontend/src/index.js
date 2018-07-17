@@ -143,7 +143,7 @@ class Container extends React.Component {
 				<h2 align="center">Current Number of Votes for Each Candidate</h2>
 				<div align="center">
 					<Charts.Pie 
-						data={data}
+						data={this.state.items}
 						width="300" 
 						height="300"
 
@@ -159,13 +159,13 @@ class Container extends React.Component {
 			return res.json();
 		})
 		.then((res) => {	
-			this.setState({ items: res })
 			console.log(this.state);
 			console.log(mainContent);	
 			data[0].value = this.state.items[0].totalVotes;
 			data[1].value = this.state.items[1].totalVotes;
 			data[2].value = this.state.items[2].totalVotes;
-			data[3].value = this.state.items[3].totalVotes;
+			data[3].value = this.state.items[3].totalVotes;	
+			this.setState({ items: res })
 		})
 	
 	}
