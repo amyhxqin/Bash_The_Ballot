@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var router = express.Router();
-var port = process.env.PORT || 80;
+var port = 8081;
+const path = require('path');
 
 var bodyParser = require('body-parser');  
 app.use(bodyParser.json());  
@@ -21,6 +22,13 @@ var config =
 	     encrypt: true
      }
    }
+
+
+app.use(express.static(path.join(__dirname, '../build')));
+app.get('/', function (req, res) {
+	console.log('serving files');
+	res.sendFile(path.join(__dirname, '../build/', 'index.html'));
+});
 
 app.get('/index', function (req, res){
 	res.send(myvar);

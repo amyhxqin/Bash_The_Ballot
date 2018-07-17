@@ -23,14 +23,14 @@ import NewWindow from 'react-new-window'
 //Link: https://github.com/rmariuzzo/react-new-window
 
 //Sticky navigation bar with jQuery
-require("jsdom").env("", function(err, window) {
-    if (err) {
-        console.error(err);
-        return;
-    }
+// require("jsdom").env("", function(err, window) {
+//     if (err) {
+//         console.error(err);
+//         return;
+//     }
  
-    var $ = require("jquery")(window);
-});
+//     var $ = require("jquery")(window);
+// });
 
 $(function(){
 
