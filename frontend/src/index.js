@@ -63,19 +63,19 @@ var data = [
 //Candidate 2 = mr toronto goose
 	{
 		label: 'Mr Goose, Toronto', //name of candidate
-		value: 2, //# of votes
+		value: 1, //# of votes
 		color: '#D7BDE2' //color of portion
 	},
 //Candidate 3
 	{
 		label: 'Sir Snow Bunting', //name of candidate
-		value: 3, //# of votes
+		value: 1, //# of votes
 		color: '#A3E4D7' //color of portion
 	},
 //Candidate 4
 	{
 		label: 'Mrs Bullfinch', //name of candidate
-		value: 4, //# of votes
+		value: 1, //# of votes
 		color: '#FAD7A0' //color of portion
 	}
 ];
@@ -84,23 +84,26 @@ var data = [
 //The initial value for mainContent is that of the Home page.
 //After any modifications, please copy-paste this value to that of the
 //function index(e).
+
 var mainContent = (
 	<div className="content">
     		<h1 align="center">Welcome to Elections Birdtown!</h1>
-    		<h2 align="center">Current Number of Votes for Each Candidate</h2>
-    		<div align="center">
-	    		<Charts.Pie 
-	    			data={data}
-	    			width="300" 
-	    			height="300"
-
-	    		/>
-    		</div>
     		<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 	    		Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
 	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
 		</div>
 );
+
+
+    		//<h2 align="center">Current Number of Votes for Each Candidate</h2>
+    		//<div align="center">
+	    		//<Charts.Pie 
+	    			//data={data}
+	    			//width="300" 
+	    			//height="300"
+
+	    		///>
+    		//</div>
 
 //HTML for banner class
 var mainBanner = (
@@ -144,6 +147,24 @@ class Container extends React.Component {
 		data[1].value = this.state.items[1].totalVotes;
 		data[2].value = this.state.items[2].totalVotes;
 		data[3].value = this.state.items[3].totalVotes;
+	
+		mainContent = (	
+		<div className="content">
+    			<h1 align="center">Welcome to Elections Birdtown!</h1>
+    			<h2 align="center">Current Number of Votes for Each Candidate</h2>
+    			<div align="center">
+	    			<Charts.Pie 
+	    				data={data}
+	    				width="300" 
+	    				height="300"
+
+	    			/>
+    			</div>
+			<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui. 
+				Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
+			</div>
+		);
 	}
 
 
@@ -156,7 +177,7 @@ class Container extends React.Component {
     		<h2 align="center">Current Number of Votes for Each Candidate</h2>
     		<div align="center">
 	    		<Charts.Pie 
-	    			data={this.state.items}
+	    			data={data}
 	    			width="300" 
 	    			height="300"
 
