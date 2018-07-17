@@ -143,7 +143,7 @@ class Container extends React.Component {
 				<h2 align="center">Current Number of Votes for Each Candidate</h2>
 				<div align="center">
 					<Charts.Pie 
-						data={this.state.items}
+						data={data}
 						width="300" 
 						height="300"
 
@@ -156,7 +156,9 @@ class Container extends React.Component {
 		);
 		fetch('/count')
 		.then((res) => {
-			res.json();
+			return res.json();
+		})
+		.then((res) => {	
 			this.setState({ items: res })
 			console.log(this.state);
 			console.log(mainContent);	
