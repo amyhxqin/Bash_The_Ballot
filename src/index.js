@@ -137,7 +137,7 @@ class Container extends React.Component {
 	//The following functions modify the content class when a corresponding navigation button is clicked.
 	
 	componentDidUpdate() {
-		fetch('http://localhost/count')
+		fetch('/count')
 		.then(res => res.json())
 		.then(items => this.setState({ items }));
 		data[0].value = this.state.items[0].totalVotes;
@@ -244,7 +244,7 @@ class Container extends React.Component {
 				uport.requestAddress().then((address) => {
 					add = address;
 					request
-					   .post('http://bash-the-ballot.azurewebsites.net/vote')
+					   .post('/vote')
 					   .set('Content-Type', 'application/x-www-form-urlencoded')
 					   .send({ 
 					   first: "Null",
