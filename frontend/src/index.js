@@ -130,11 +130,8 @@ class Container extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {items: [{"firstName": "Mr Goose", "lastName": "Waterloo", "totalVotes": 1}, 
-					{"firstName": "Mr Goose", "lastName": "Toronto", "totalVotes": 1},
-					{"firstName": "Sir Snow", "lastName": "Bunting", "totalVotes": 1},
-					{"firstName": "Mrs", "lastName": "Bullfinch", "totalVotes": 1}, 
-	]};}
+		this.state = {items: data}; 
+	}
 
 
 	//The following functions modify the content class when a corresponding navigation button is clicked.
@@ -158,12 +155,16 @@ class Container extends React.Component {
 			</div>
 		);
 		fetch('/count')
-		.then(res => res.json())
-		.then(items => this.setState({ items }));
-		data[0].value = this.state.items[0].totalVotes;
-		data[1].value = this.state.items[1].totalVotes;
-		data[2].value = this.state.items[2].totalVotes;
-		data[3].value = this.state.items[3].totalVotes;
+		.then((res) => {
+			res.json();
+			this.setState({ items: res })
+			console.log(this.state);
+			console.log(mainContent);	
+			data[0].value = this.state.items[0].totalVotes;
+			data[1].value = this.state.items[1].totalVotes;
+			data[2].value = this.state.items[2].totalVotes;
+			data[3].value = this.state.items[3].totalVotes;
+		})
 	
 	}
 
