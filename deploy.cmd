@@ -106,18 +106,12 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 )
 
 :: 4. Build frontend
-call :ExecuteCmd cd frontend
-call :ExecuteCmd dir
-call :ExecureCmd echo building frontend
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
-  call :ExecuteCmd !NPM_CMD! install --production
+  call :ExecuteCmd !NPM_CMD! run build-frontend
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
-call :ExecuteCmd !NPM_CMD! run build
-call :ExecuteCmd cd ..
-IF !ERRORLEVEL! NEQ 0 goto error
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
