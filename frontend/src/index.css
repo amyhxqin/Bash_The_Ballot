@@ -23,10 +23,9 @@ p{
 }
 
 .vertical-center {
-	min-height: 100%;
-	min-height: 100vh;
 	display: flex;
 	align-items: center;
+	position: relative;
 }
 
 .wrap{
@@ -232,11 +231,11 @@ z-index: 1;
 }
 
 .ballot-container {
-	background: #566573;
+    background-color: #808B96;
 	border-radius: 25px;  
-	  border: 2px solid black;
-		padding: 20px;
-		  width: 300px;
+	border: 2px solid #566573;
+	padding: 20px;
+	width: 300px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 20px;
@@ -281,8 +280,8 @@ position: relative;
 
 input[type="radio"] {
 	float: right;
-	margin-left: 10px;
-	position: relative;
+	right: 10px;
+	position: absolute;
 }
 
 .ballot-back{
