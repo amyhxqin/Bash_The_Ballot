@@ -133,7 +133,7 @@ class Container extends React.Component {
 		super(props);
 		this.state = { items: data };
 		this.reloadGraphData = this.reloadGraphData.bind(this);
-		this.vote = this.vode.bind(this);
+		this.vote = this.vote.bind(this);
 	}
 
 	componentDidMount() {
