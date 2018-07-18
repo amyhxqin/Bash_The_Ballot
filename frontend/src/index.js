@@ -133,10 +133,11 @@ class Container extends React.Component {
 		super(props);
 		this.state = { items: data };
 		this.reloadGraphData = this.reloadGraphData.bind(this);
+		this.vote = this.vode.bind(this);
 	}
 
 	componentDidMount() {
-		
+		this.reloadGraphData();
 	}
 
 	reloadGraphData() {
@@ -350,7 +351,7 @@ class Container extends React.Component {
 							</form>
 							<div class="row">
 								<button className="btn btn-warning" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
-								<button className="btn" onClick={this.back}>Exit</button>
+								<button className="btn btn-success" onClick={this.back}>Exit</button>
 							</div>
 						</div>
 				);
