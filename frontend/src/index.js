@@ -132,12 +132,14 @@ class Container extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { items: data };
+		this.reloadGraphData = this.reloadGraphData.bind(this);
 	}
 
-
-	//The following functions modify the content class when a corresponding navigation button is clicked.
-
 	componentDidMount() {
+		
+	}
+
+	reloadGraphData() {
 		fetch('/count')
 			.then((res) => {
 				return res.json();
@@ -305,43 +307,11 @@ class Container extends React.Component {
 				e.preventDefault();
 				const container = Container;
 				container.set
-				fetch('/count')
-				.then((res) => {
-					return res.json();
-				})
-				.then((res) => {
-					container.setState({ items: res });
-					data[0].value = container.state.items[0].totalVotes;
-					data[1].value = container.state.items[1].totalVotes;
-					data[2].value = container.state.items[2].totalVotes;
-					data[3].value = container.state.items[3].totalVotes;
-					container.setState({ data: data });
-
-					mainContent = (
-						<div className="content">
-							<h1 align="center">Welcome to Elections Birdtown!</h1>
-							<h2 align="center">Current Number of Votes for Each Candidate</h2>
-							<div align="center">
-								<Charts.Pie
-									data={container.state.data}
-									width="300"
-									height="300"
-	
-								/>
-							</div>
-							<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui.
-					Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
-						</div>
-					)
-				
-					container.forceUpdate();
-
-					ReactDOM.render(
-						<Container />,
-						document.getElementById('root')
-					);
-				})
+				this.props.updateGraphData();
+				ReactDOM.render(
+					<Container />,
+					document.getElementById('root')
+				);
 			}
 
 			//<div dangerouslySetInnerHTML={createMarkup(this.state.items[0].firstName)} />
@@ -379,8 +349,8 @@ class Container extends React.Component {
 								</div>
 							</form>
 							<div class="row">
-								<button className="submit-btn btn btn-warning" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
-								<button className="ballot-back btn" onClick={this.back}>Exit</button>
+								<button className="btn btn-warning" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
+								<button className="btn" onClick={this.back}>Exit</button>
 							</div>
 						</div>
 				);
@@ -389,7 +359,7 @@ class Container extends React.Component {
 
 		mainContent = (
 			<div className="content">
-				<BallotForm />
+				<BallotForm updateGraphData = {this.updateGraphData}/>
 			</div>
 		);
 
