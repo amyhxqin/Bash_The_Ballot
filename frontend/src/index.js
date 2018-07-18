@@ -15,6 +15,7 @@ import request from "../node_modules/superagent/superagent";
 import { Connect, SimpleSigner } from 'uport-connect'
 import { QRUtil } from 'uport-connect'
 import NewWindow from 'react-new-window'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 //import BallotForm from './ballot-form/src/App.js';
 
