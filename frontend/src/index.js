@@ -226,7 +226,7 @@ class Container extends React.Component {
    class Name extends React.Component {
 	 render() {
 	   return (
-		 <div class="col-md-8" className="Name">
+		 <div class="col-md-8">
 			<p>{this.props.name}</p>
 		 </div>
 	   );
