@@ -51,8 +51,6 @@ $(function () {
 });
 
 
-//Data for the charts
-
 var data = [
 
 	//Candidate 1 = mr waterloo goose
