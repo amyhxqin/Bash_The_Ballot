@@ -268,14 +268,8 @@ z-index: 1;
 }
 
 .submit-btn {
-position: relative;
-	left: 40%;
+	margin: 5px;
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-	font-size: 1em;
-}
-
-.submit-btn:hover {
-	background-color: #808B96;
 }
 
 input[type="radio"] {
@@ -285,11 +279,6 @@ input[type="radio"] {
 }
 
 .ballot-back{
+	margin: 5px;
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-								font-size: 1em;
 }
-.ballot-back:hover {
-	background-color: #808B96;
-
-								margin-left: 0px;
-								}

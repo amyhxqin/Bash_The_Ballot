@@ -247,6 +247,7 @@ class Container extends React.Component {
 
 				this.handleOptionChange = this.handleOptionChange.bind(this);
 				this.handleOptionSubmit = this.handleOptionSubmit.bind(this);
+				this.back = this.back.bind(this);
 			}
 
 			//http://bash-the-ballot.azurewebsites.net/candidates		
@@ -349,9 +350,9 @@ class Container extends React.Component {
 										onChange={this.handleOptionChange} />
 								</div>
 							</form>
-							<div class="row">
-								<button className="btn btn-warning" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
-								<button className="btn btn-success" onClick={this.back}>Exit</button>
+							<div class="row text-center">
+								<button className="ballot-back btn btn-warning" onClick={this.back}>Exit</button>
+								<button className="submit-btn btn btn-success" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
 							</div>
 						</div>
 				);
