@@ -146,7 +146,7 @@ class Container extends React.Component {
 				mainContent = (
 					<div className="content">
 						<h1 align="center">Welcome to Elections Birdtown!</h1>
-						<h2 align="center">Current Number of Votes for Each Candidate</h2>
+						<h2 align="center">Number of Votes for Each Candidate</h2>
 						<div align="center">
 							<Charts.Pie
 								data={this.state.data}
