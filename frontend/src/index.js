@@ -226,8 +226,8 @@ class Container extends React.Component {
 		class Name extends React.Component {
 			render() {
 				return (
-					<div class="col-md-8">
-						<p>{this.props.name}</p>
+					<div class="col-md-8" className="Name">
+						<div class="content">{this.props.name}</div>
 					</div>
 				);
 			}
@@ -330,7 +330,6 @@ class Container extends React.Component {
 
 				return (
 					<div className="ballot-background">
-						<button className="ballot-back" onClick={this.back}>Exit</button>
 						<div className="ballot-container">
 							<div className="title">{title}</div>
 							<form onSubmit={this.handleSubmit}>
@@ -359,7 +358,10 @@ class Container extends React.Component {
 										onChange={this.handleOptionChange} />
 								</div>
 							</form>
-							<button className="submit-btn" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
+							<div class="row">
+								<button className="submit-btn" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
+								<button className="ballot-back" onClick={this.back}>Exit</button>
+							</div>
 						</div>
 					</div>
 				);
