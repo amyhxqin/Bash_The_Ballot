@@ -206,6 +206,7 @@ class Container extends React.Component {
 	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
 			</div>
 		)
+		this.reloadGraphData();
 
 
 		ReactDOM.render(
@@ -309,7 +310,7 @@ class Container extends React.Component {
 				e.preventDefault();
 				const container = Container;
 				container.set
-				this.props.updateGraphData();
+				this.props.reloadGraphData();
 				ReactDOM.render(
 					<Container />,
 					document.getElementById('root')
@@ -350,9 +351,11 @@ class Container extends React.Component {
 										onChange={this.handleOptionChange} />
 								</div>
 							</form>
-							<div class="row text-center">
-								<button className="ballot-back btn btn-warning" onClick={this.back}>Exit</button>
-								<button className="submit-btn btn btn-success" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
+							<div class="row">
+								<div class="text-center">
+									<button className="ballot-back btn btn-warning" onClick={this.back}>Exit</button>
+									<button className="submit-btn btn btn-success" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
+								</div>
 							</div>
 						</div>
 				);
@@ -361,7 +364,7 @@ class Container extends React.Component {
 
 		mainContent = (
 			<div className="content">
-				<BallotForm updateGraphData = {this.updateGraphData}/>
+				<BallotForm reloadGraphData = {this.reloadGraphData}/>
 			</div>
 		);
 
