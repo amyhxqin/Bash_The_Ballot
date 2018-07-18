@@ -167,7 +167,6 @@ class Container extends React.Component {
 						Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
 					</div>
 				);
-				this.forceUpdate();
 			})
 	}
 
@@ -320,7 +319,10 @@ class Container extends React.Component {
 	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
 					</div>
 				)
-				this.forceUpdate();
+				ReactDOM.render(
+					<BallotForm />,
+					document.getElementById('root')
+				);
 			}
 
 			//<div dangerouslySetInnerHTML={createMarkup(this.state.items[0].firstName)} />
@@ -371,7 +373,10 @@ class Container extends React.Component {
 		mainContent = (
 			<BallotForm />
 		);
-		this.forceUpdate();
+		ReactDOM.render(
+			<Container />,
+			document.getElementById('root')
+		);
 	}
 
 	candidates(e) {
