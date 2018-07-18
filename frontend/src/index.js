@@ -303,18 +303,19 @@ class Container extends React.Component {
 
 			back(e) {
 				e.preventDefault();
-
+				const container = Container;
+				container.set
 				fetch('/count')
 				.then((res) => {
 					return res.json();
 				})
 				.then((res) => {
-					this.setState({ items: res });
-					data[0].value = this.state.items[0].totalVotes;
-					data[1].value = this.state.items[1].totalVotes;
-					data[2].value = this.state.items[2].totalVotes;
-					data[3].value = this.state.items[3].totalVotes;
-					this.setState({ data: data });
+					container.setState({ items: res });
+					data[0].value = container.state.items[0].totalVotes;
+					data[1].value = container.state.items[1].totalVotes;
+					data[2].value = container.state.items[2].totalVotes;
+					data[3].value = container.state.items[3].totalVotes;
+					container.setState({ data: data });
 
 					mainContent = (
 						<div className="content">
@@ -322,7 +323,7 @@ class Container extends React.Component {
 							<h2 align="center">Current Number of Votes for Each Candidate</h2>
 							<div align="center">
 								<Charts.Pie
-									data={this.state.data}
+									data={container.state.data}
 									width="300"
 									height="300"
 	
@@ -334,7 +335,7 @@ class Container extends React.Component {
 						</div>
 					)
 				
-					this.forceUpdate();
+					container.forceUpdate();
 
 					ReactDOM.render(
 						<Container />,
@@ -378,8 +379,8 @@ class Container extends React.Component {
 								</div>
 							</form>
 							<div class="row">
-								<button className="submit-btn" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
-								<button className="ballot-back" onClick={this.back}>Exit</button>
+								<button className="submit-btn btn btn-warning" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
+								<button className="ballot-back btn" onClick={this.back}>Exit</button>
 							</div>
 						</div>
 				);
