@@ -22,6 +22,13 @@ p{
 
 }
 
+.vertical-center {
+	min-height: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
 .wrap{
 	width: 100%;
 	margin-left: auto;
@@ -214,7 +221,7 @@ z-index: 1;
 }
 
 .ballot-background{
-	background: #566573;
+    background-color: #808B96;
 	height:100%; 
 	width:100%;
 	margin:0;
@@ -250,32 +257,33 @@ z-index: 1;
 
 .radio {
 	margin: 20px;
-	  position: relative;
-		font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-		font-size: 1.2em;
-			font-style: normal;
-				font-variant: normal;
-					font-weight: 500;
-						line-height: 20px;
-						color: #FAE5D3;
-						margin-left: 10px;
-						  }
+	position: relative;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	font-size: 1.2em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 20px;
+	color: #FAE5D3;
+	margin-left: 10px;
+}
 
-						  .submit-btn {
-							position: relative;
-							  left: 40%;
-								font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-								font-size: 1em;
-							}
+.submit-btn {
+position: relative;
+	left: 40%;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	font-size: 1em;
+}
 
-							.submit-btn:hover {
-								background-color: #808B96;
-							}
-							input[type="radio"] {
-								float: right;
-								  margin-left: 10px;
-									position: relative;
-								}
+.submit-btn:hover {
+	background-color: #808B96;
+}
+
+input[type="radio"] {
+	float: right;
+	margin-left: 10px;
+	position: relative;
+}
 
 .ballot-back{
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;

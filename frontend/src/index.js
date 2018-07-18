@@ -226,8 +226,8 @@ class Container extends React.Component {
 		class Name extends React.Component {
 			render() {
 				return (
-					<div class="col-md-8" className="Name">
-						<div class="content">{this.props.name}</div>
+					<div className="Name" >
+						<div class="col-md-8">{this.props.name}</div>
 					</div>
 				);
 			}
@@ -336,27 +336,27 @@ class Container extends React.Component {
 						<div className="ballot-container">
 							<div className="title">{title}</div>
 							<form onSubmit={this.handleSubmit}>
-								<div className="row">
+								<div className="row vertical-center">
 									<Name name={this.state.items[0].firstName + ' ' + this.state.items[0].lastName} />
-									<input class="col-md-2" type="radio" value={this.state.items[0].lastName}
+									<input class="col-md-2 pull-right" type="radio" value={this.state.items[0].lastName}
 										checked={this.state.selectedOption === this.state.items[0].lastName}
 										onChange={this.handleOptionChange} />
 								</div>
 								<div className="row">
 									<Name name={this.state.items[1].firstName + ' ' + this.state.items[1].lastName} />
-									<input class="col-md-2" type="radio" value={this.state.items[1].lastName}
+									<input class="col-md-2 pull-right" type="radio" value={this.state.items[1].lastName}
 										checked={this.state.selectedOption === this.state.items[1].lastName}
 										onChange={this.handleOptionChange} />
 								</div>
 								<div className="row">
 									<Name name={this.state.items[2].firstName + ' ' + this.state.items[2].lastName} />
-									<input class="col-md-2" type="radio" value={this.state.items[2].lastName}
+									<input class="col-md-2 pull-right" type="radio" value={this.state.items[2].lastName}
 										checked={this.state.selectedOption === this.state.items[2].lastName}
 										onChange={this.handleOptionChange} />
 								</div>
 								<div className="row">
 									<Name name={this.state.items[3].firstName + ' ' + this.state.items[3].lastName} />
-									<input class="col-md-2" type="radio" value={this.state.items[3].lastName}
+									<input class="col-md-2 pull-right" type="radio" value={this.state.items[3].lastName}
 										checked={this.state.selectedOption === this.state.items[3].lastName}
 										onChange={this.handleOptionChange} />
 								</div>
