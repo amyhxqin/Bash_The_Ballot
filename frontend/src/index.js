@@ -339,25 +339,25 @@ class Container extends React.Component {
 							  <div className = "ballot-container">
 					  <div className = "title">{title}</div>
 						<form onSubmit={this.handleSubmit}>
-							   <div className = "radio">
+							   <div className = "row">
 								<Name name={this.state.items[0].firstName +' '+ this.state.items[0].lastName}/>
 								<input type="radio" value={this.state.items[0].lastName} 
 								  checked={this.state.selectedOption === this.state.items[0].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
-							  <div className = "radio">
+							  <div className = "row">
 								<Name name={this.state.items[1].firstName +' '+ this.state.items[1].lastName}/>
 								<input type="radio" value={this.state.items[1].lastName} 
 								  checked={this.state.selectedOption === this.state.items[1].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
-								<div className = "radio">
+								<div className = "row">
 								<Name name={this.state.items[2].firstName +' '+ this.state.items[2].lastName}/>
 								<input type="radio" value={this.state.items[2].lastName} 
 								  checked={this.state.selectedOption === this.state.items[2].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
-								<div className = "radio">
+								<div className = "row">
 								<Name name={this.state.items[3].firstName +' '+ this.state.items[3].lastName}/>
 								<input type="radio" value={this.state.items[3].lastName} 
 								  checked={this.state.selectedOption === this.state.items[3].lastName}             

@@ -3,6 +3,7 @@
  */
  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500|Open+Sans');
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css");
 	
 div className="banner-text"><strong>Bash the Ballot</strong></div>
 html, body{
