@@ -227,7 +227,7 @@ class Container extends React.Component {
 			render() {
 				return (
 					<div className="Name" >
-						<div class="col-md-8">{this.props.name}</div>
+						<div class="col-md-12">{this.props.name}</div>
 					</div>
 				);
 			}
@@ -303,28 +303,44 @@ class Container extends React.Component {
 
 			back(e) {
 				e.preventDefault();
-				mainContent = (
-					<div className="content">
-						<h1 align="center">Welcome to Elections Birdtown!</h1>
-						<h2 align="center">Current Number of Votes for Each Candidate</h2>
-						<div align="center">
-							<Charts.Pie
-								data={data}
-								width="300"
-								height="300"
 
-							/>
+				fetch('/count')
+				.then((res) => {
+					return res.json();
+				})
+				.then((res) => {
+					this.setState({ items: res });
+					data[0].value = this.state.items[0].totalVotes;
+					data[1].value = this.state.items[1].totalVotes;
+					data[2].value = this.state.items[2].totalVotes;
+					data[3].value = this.state.items[3].totalVotes;
+					this.setState({ data: data });
+
+					mainContent = (
+						<div className="content">
+							<h1 align="center">Welcome to Elections Birdtown!</h1>
+							<h2 align="center">Current Number of Votes for Each Candidate</h2>
+							<div align="center">
+								<Charts.Pie
+									data={this.state.data}
+									width="300"
+									height="300"
+	
+								/>
+							</div>
+							<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui.
+					Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
 						</div>
-						<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Donec felis felis, fermentum aliquet dapibus sed, tempor vel dui.
-	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
-					</div>
-				)
+					)
+				
+					this.forceUpdate();
 
-				ReactDOM.render(
-					<Container />,
-					document.getElementById('root')
-				);
+					ReactDOM.render(
+						<Container />,
+						document.getElementById('root')
+					);
+				})
 			}
 
 			//<div dangerouslySetInnerHTML={createMarkup(this.state.items[0].firstName)} />
@@ -338,25 +354,25 @@ class Container extends React.Component {
 							<form onSubmit={this.handleSubmit}>
 								<div className="row vertical-center">
 									<Name name={this.state.items[0].firstName + ' ' + this.state.items[0].lastName} />
-									<input class="col-md-2 pull-right" type="radio" value={this.state.items[0].lastName}
+									<input class="col-md-2" type="radio" value={this.state.items[0].lastName}
 										checked={this.state.selectedOption === this.state.items[0].lastName}
 										onChange={this.handleOptionChange} />
 								</div>
-								<div className="row">
+								<div className="row vertical-center">
 									<Name name={this.state.items[1].firstName + ' ' + this.state.items[1].lastName} />
-									<input class="col-md-2 pull-right" type="radio" value={this.state.items[1].lastName}
+									<input class="col-md-2" type="radio" value={this.state.items[1].lastName}
 										checked={this.state.selectedOption === this.state.items[1].lastName}
 										onChange={this.handleOptionChange} />
 								</div>
-								<div className="row">
+								<div className="row vertical-center">
 									<Name name={this.state.items[2].firstName + ' ' + this.state.items[2].lastName} />
-									<input class="col-md-2 pull-right" type="radio" value={this.state.items[2].lastName}
+									<input class="col-md-2" type="radio" value={this.state.items[2].lastName}
 										checked={this.state.selectedOption === this.state.items[2].lastName}
 										onChange={this.handleOptionChange} />
 								</div>
-								<div className="row">
+								<div className="row vertical-center">
 									<Name name={this.state.items[3].firstName + ' ' + this.state.items[3].lastName} />
-									<input class="col-md-2 pull-right" type="radio" value={this.state.items[3].lastName}
+									<input class="col-md-2" type="radio" value={this.state.items[3].lastName}
 										checked={this.state.selectedOption === this.state.items[3].lastName}
 										onChange={this.handleOptionChange} />
 								</div>
