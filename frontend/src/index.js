@@ -134,6 +134,7 @@ class Container extends React.Component {
 		this.state = { items: data };
 		this.reloadGraphData = this.reloadGraphData.bind(this);
 		this.vote = this.vote.bind(this);
+		this.index = this.index.bind(this);
 	}
 
 	componentDidMount() {
@@ -351,11 +352,9 @@ class Container extends React.Component {
 										onChange={this.handleOptionChange} />
 								</div>
 							</form>
-							<div class="row">
-								<div class="text-center">
-									<button className="ballot-back btn btn-warning" onClick={this.back}>Exit</button>
-									<button className="submit-btn btn btn-success" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
-								</div>
+							<div class="text-center">
+								<button className="ballot-back btn btn-warning" onClick={this.back}>Exit</button>
+								<button className="submit-btn btn btn-success" type="submit" onClick={this.handleOptionSubmit}>Submit</button>
 							</div>
 						</div>
 				);
