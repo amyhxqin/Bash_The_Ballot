@@ -225,8 +225,8 @@ class Container extends React.Component {
    class Name extends React.Component {
 	 render() {
 	   return (
-		 <div className="Name">
-			<div>{this.props.name}</div>
+		 <div class="col-md-8" className="Name">
+			<p>{this.props.name}</p>
 		 </div>
 	   );
 	 }
@@ -341,25 +341,25 @@ class Container extends React.Component {
 						<form onSubmit={this.handleSubmit}>
 							   <div className = "row">
 								<Name name={this.state.items[0].firstName +' '+ this.state.items[0].lastName}/>
-								<input type="radio" value={this.state.items[0].lastName} 
+								<input class="col-md-2" type="radio" value={this.state.items[0].lastName} 
 								  checked={this.state.selectedOption === this.state.items[0].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
 							  <div className = "row">
 								<Name name={this.state.items[1].firstName +' '+ this.state.items[1].lastName}/>
-								<input type="radio" value={this.state.items[1].lastName} 
+								<input class="col-md-2" type="radio" value={this.state.items[1].lastName} 
 								  checked={this.state.selectedOption === this.state.items[1].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
 								<div className = "row">
 								<Name name={this.state.items[2].firstName +' '+ this.state.items[2].lastName}/>
-								<input type="radio" value={this.state.items[2].lastName} 
+								<input class="col-md-2" type="radio" value={this.state.items[2].lastName} 
 								  checked={this.state.selectedOption === this.state.items[2].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
 								<div className = "row">
 								<Name name={this.state.items[3].firstName +' '+ this.state.items[3].lastName}/>
-								<input type="radio" value={this.state.items[3].lastName} 
+								<input class="col-md-2" type="radio" value={this.state.items[3].lastName} 
 								  checked={this.state.selectedOption === this.state.items[3].lastName}             
 								  onChange={this.handleOptionChange} />
 							  </div>
