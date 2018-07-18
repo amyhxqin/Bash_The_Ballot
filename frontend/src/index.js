@@ -23,15 +23,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 //Link: https://github.com/reactjs/react-chartjs
 //Link: https://github.com/rmariuzzo/react-new-window
 
-//Sticky navigation bar with jQuery
-// require("jsdom").env("", function(err, window) {
-//     if (err) {
-//         console.error(err);
-//         return;
-//     }
-
-//     var $ = require("jquery")(window);
-// });
 
 $(function () {
 
