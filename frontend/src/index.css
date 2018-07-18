@@ -225,12 +225,14 @@ z-index: 1;
 }
 
 .ballot-container {
+	background: #566573;
 	border-radius: 25px;  
 	  border: 2px solid black;
 		padding: 20px;
 		  width: 300px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 20px;
   }
 
   .title {
@@ -276,9 +278,6 @@ z-index: 1;
 								}
 
 .ballot-back{
-	position: absolute;
-	top: 20px;
-	left: 10px;
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 								font-size: 1em;
 }

@@ -167,6 +167,7 @@ class Container extends React.Component {
 						Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
 					</div>
 				);
+				this.forceUpdate();
 			})
 	}
 
@@ -319,8 +320,9 @@ class Container extends React.Component {
 	    		Nunc turpis mauris, mattis nec volutpat sed, vulputate nec nunc.</p>
 					</div>
 				)
+
 				ReactDOM.render(
-					<BallotForm />,
+					<Container />,
 					document.getElementById('root')
 				);
 			}
@@ -331,7 +333,6 @@ class Container extends React.Component {
 				const title = 'BALLOT';
 
 				return (
-					<div className="ballot-background">
 						<div className="ballot-container">
 							<div className="title">{title}</div>
 							<form onSubmit={this.handleSubmit}>
@@ -365,14 +366,16 @@ class Container extends React.Component {
 								<button className="ballot-back" onClick={this.back}>Exit</button>
 							</div>
 						</div>
-					</div>
 				);
 			}
 		}
 
 		mainContent = (
-			<BallotForm />
+			<div className="content">
+				<BallotForm />
+			</div>
 		);
+
 		ReactDOM.render(
 			<Container />,
 			document.getElementById('root')
