@@ -17,10 +17,10 @@ var config =
      user: 'bash', // update me
      password: 'ballot-1234', // update me
      server: 'bash-the-ballot-server.database.windows.net', // update me
-     database: 'BashtheBallotDB',
+     database: 'Bash-The-Ballot-SQL',
      encrypt: true,
      options: {
-	     database: 'BashtheBallotDB',
+	     database: 'Bash-The-Ballot-SQL',
 	     encrypt: true
      }
    }
