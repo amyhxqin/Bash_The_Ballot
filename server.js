@@ -16,7 +16,7 @@ var config =
    {
      user: 'bash', // update me
      password: 'ballot-1234', // update me
-     server: 'btbserver.database.windows.net', // update me
+     server: 'bash-the-ballot-server.database.windows.net', // update me
      database: 'BashtheBallotDB',
      encrypt: true,
      options: {
