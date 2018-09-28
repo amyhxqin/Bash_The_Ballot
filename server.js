@@ -171,7 +171,6 @@ app.post('/vote', function (req, res, next) {
 
 app.get('/count', function (req, res, next){
 	sql.connect(config, function (err) {
-	console.log("newVoter");
 
 	    var request = new sql.Request();
 	 	request.query('SELECT candidates.firstName, candidates.lastName, voteSum.totalVotes FROM candidates, (SELECT COUNT(candidateId) AS totalVotes, candidateId FROM ballot GROUP BY candidateId) AS voteSum WHERE voteSum.candidateId=candidates.id;', function (err, recordset) { 
